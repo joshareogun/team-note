@@ -23,6 +23,8 @@
     UIImage *img = [UIImage imageNamed:@"escheresque_ste"];
     [[UINavigationBar appearance] setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
     
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:img forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
     return YES;
 }
 							

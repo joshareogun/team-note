@@ -32,6 +32,7 @@
 		CD0B736617A420B9007C75AD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0B736517A420B9007C75AD /* SettingsViewController.m */; };
 		CD0B736917A42132007C75AD /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0B736817A42132007C75AD /* ListViewController.m */; };
 		CD29C36C17A6742100C08389 /* green_dust.png in Resources */ = {isa = PBXBuildFile; fileRef = CD29C36B17A6742100C08389 /* green_dust.png */; };
+		CDF48D1517A93AA3004A389C /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF48D1417A93AA3004A389C /* ListItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,8 @@
 		CD0B736717A42132007C75AD /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		CD0B736817A42132007C75AD /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		CD29C36B17A6742100C08389 /* green_dust.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_dust.png; sourceTree = "<group>"; };
+		CDF48D1317A93AA3004A389C /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
+		CDF48D1417A93AA3004A389C /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 			children = (
 				CD0B733017A2BA59007C75AD /* AppDelegate.h */,
 				CD0B733117A2BA59007C75AD /* AppDelegate.m */,
+				CDF48D1317A93AA3004A389C /* ListItem.h */,
+				CDF48D1417A93AA3004A389C /* ListItem.m */,
 				CD0B734D17A2BAA0007C75AD /* mainViewController.h */,
 				CD0B734E17A2BAA0007C75AD /* mainViewController.m */,
 				CD0B736417A420B9007C75AD /* SettingsViewController.h */,
@@ -236,6 +241,7 @@
 				CD0B734F17A2BAA0007C75AD /* mainViewController.m in Sources */,
 				CD0B736617A420B9007C75AD /* SettingsViewController.m in Sources */,
 				CD0B736917A42132007C75AD /* ListViewController.m in Sources */,
+				CDF48D1517A93AA3004A389C /* ListItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

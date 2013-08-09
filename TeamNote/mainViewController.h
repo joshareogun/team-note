@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface mainViewController : UIViewController
+@interface mainViewController : UIViewController <UITextViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextView *mainTextView;
+@property (weak, nonatomic) IBOutlet UITextField *titleBarTextField;
+
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *originalSettingsButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *realButton;
 
 @end
