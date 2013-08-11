@@ -130,10 +130,10 @@
     
     NSMutableArray *myArray = [self.navBar.rightBarButtonItems mutableCopy];
     
-    UIButton *myOldButton = [[UIButton alloc] initWithFrame:CGRectMake(271, 3, 44, 38)];
+    UIButton *myOldButton = [[UIButton alloc] initWithFrame:CGRectMake(271, 3, 41, 29)];
     
     [myOldButton setBackgroundImage:[UIImage imageNamed:@"escheresque_ste.png"] forState:UIControlStateNormal];
-    [myOldButton setImage:[UIImage imageNamed:@"lines.png"] forState:UIControlStateNormal];
+    [myOldButton setImage:[UIImage imageNamed:@"cog.png"] forState:UIControlStateNormal];
     [myOldButton addTarget:self action:@selector(moveToSettings) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *superButton = [[UIBarButtonItem alloc] initWithCustomView:myOldButton];
@@ -152,6 +152,14 @@
     
     [self performSegueWithIdentifier:@"settingsSegue" sender:self];
 }
+
+-(void)saveFile
+{
+    NSString* finalText = self.mainTextView.text;
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
