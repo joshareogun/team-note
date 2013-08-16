@@ -20,10 +20,11 @@
 {
 
     
-    UIImage *img = [UIImage imageNamed:@"escheresque_ste"];
+    UIImage *img = [UIImage imageNamed:@"navTexture"];
     [[UINavigationBar appearance] setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
     
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:img forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
     
     return YES;
 }

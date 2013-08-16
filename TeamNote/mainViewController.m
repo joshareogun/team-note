@@ -56,7 +56,7 @@
 
 -(void)customizeAppearances
 {
-    mainTextView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"cream_pixels.png"]];
+    mainTextView.backgroundColor = [UIColor whiteColor];
     
     //NSString *currentFilename;
     
@@ -105,7 +105,6 @@
     
     doneButton.tintColor = [UIColor clearColor];
     
-    
     NSMutableArray *myArray = [self.navBar.rightBarButtonItems mutableCopy];
     
     
@@ -132,7 +131,7 @@
     
     UIButton *myOldButton = [[UIButton alloc] initWithFrame:CGRectMake(271, 3, 41, 29)];
     
-    [myOldButton setBackgroundImage:[UIImage imageNamed:@"escheresque_ste.png"] forState:UIControlStateNormal];
+    [myOldButton setBackgroundImage:[UIImage imageNamed:@"navTexture"] forState:UIControlStateNormal];
     [myOldButton setImage:[UIImage imageNamed:@"cog.png"] forState:UIControlStateNormal];
     [myOldButton addTarget:self action:@selector(moveToSettings) forControlEvents:UIControlEventTouchUpInside];
     
@@ -171,7 +170,7 @@
 {
     if ([segue.identifier isEqualToString:@"settingSegue"])
     {
-        [listArray addObject:self.mainTextView.text];
+        [self saveFile];
     }
 }
 

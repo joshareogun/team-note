@@ -28,8 +28,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    [self customizeBackbutton];
 }
+
+-(void)customizeBackbutton
+{
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"connect.png"]];
+    
+    UIButton *myOldButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 3, 41, 29)];
+    
+    [myOldButton setBackgroundImage:[UIImage imageNamed:@"navTexture"] forState:UIControlStateNormal];
+    [myOldButton setImage:[UIImage imageNamed:@"backButton.png"] forState:UIControlStateNormal];
+    [myOldButton addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:myOldButton];
+    
+    self.navigationItem.leftBarButtonItem = back;
+}
+
+- (void)popCurrentViewController
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -39,6 +61,11 @@
 - (IBAction)dropBoxSwitchToggled:(id)sender
 {
     
+}
+
+-(void)returnToEdit
+{
+    [self performSegueWithIdentifier:@"settingsSegue" sender:self];
 }
 
 /*
