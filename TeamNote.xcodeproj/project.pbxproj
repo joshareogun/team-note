@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD01162817BFE50600EDC90F /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = CD01162717BFE50600EDC90F /* Note.m */; };
 		CD0B732017A2BA59007C75AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0B731F17A2BA59007C75AD /* UIKit.framework */; };
 		CD0B732217A2BA59007C75AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0B732117A2BA59007C75AD /* Foundation.framework */; };
 		CD0B732417A2BA59007C75AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0B732317A2BA59007C75AD /* CoreGraphics.framework */; };
@@ -36,10 +37,12 @@
 		CDE2450517BBF8FE009D51AB /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE2450417BBF8FE009D51AB /* connect.png */; };
 		CDE2451217BC003C009D51AB /* backButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE2451017BC003C009D51AB /* backButton@2x.png */; };
 		CDE2451317BC003C009D51AB /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE2451117BC003C009D51AB /* backButton.png */; };
-		CDF48D1517A93AA3004A389C /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF48D1417A93AA3004A389C /* ListItem.m */; };
+		CDF7D79E17C2510D00061171 /* otherNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF7D79D17C2510D00061171 /* otherNotesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD01162617BFE50600EDC90F /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		CD01162717BFE50600EDC90F /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		CD0B731C17A2BA59007C75AD /* TeamNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0B731F17A2BA59007C75AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CD0B732117A2BA59007C75AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,8 +79,8 @@
 		CDE2450417BBF8FE009D51AB /* connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connect.png; sourceTree = "<group>"; };
 		CDE2451017BC003C009D51AB /* backButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backButton@2x.png"; sourceTree = "<group>"; };
 		CDE2451117BC003C009D51AB /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
-		CDF48D1317A93AA3004A389C /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
-		CDF48D1417A93AA3004A389C /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListItem.m; sourceTree = "<group>"; };
+		CDF7D79C17C2510D00061171 /* otherNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = otherNotesViewController.h; sourceTree = "<group>"; };
+		CDF7D79D17C2510D00061171 /* otherNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = otherNotesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +131,6 @@
 			children = (
 				CD0B733017A2BA59007C75AD /* AppDelegate.h */,
 				CD0B733117A2BA59007C75AD /* AppDelegate.m */,
-				CDF48D1317A93AA3004A389C /* ListItem.h */,
-				CDF48D1417A93AA3004A389C /* ListItem.m */,
 				CD0B734D17A2BAA0007C75AD /* mainViewController.h */,
 				CD0B734E17A2BAA0007C75AD /* mainViewController.m */,
 				CD0B736417A420B9007C75AD /* SettingsViewController.h */,
@@ -137,8 +138,12 @@
 				CD0B736717A42132007C75AD /* ListViewController.h */,
 				CD0B736817A42132007C75AD /* ListViewController.m */,
 				CD0B733917A2BA59007C75AD /* MainStoryboard_iPhone.storyboard */,
+				CDF7D79C17C2510D00061171 /* otherNotesViewController.h */,
+				CDF7D79D17C2510D00061171 /* otherNotesViewController.m */,
 				CD0B733C17A2BA59007C75AD /* MainStoryboard_iPad.storyboard */,
 				CD0B733F17A2BA59007C75AD /* TeamNote.xcdatamodeld */,
+				CD01162617BFE50600EDC90F /* Note.h */,
+				CD01162717BFE50600EDC90F /* Note.m */,
 				CD0B732817A2BA59007C75AD /* Supporting Files */,
 			);
 			path = TeamNote;
@@ -257,7 +262,8 @@
 				CD0B734F17A2BAA0007C75AD /* mainViewController.m in Sources */,
 				CD0B736617A420B9007C75AD /* SettingsViewController.m in Sources */,
 				CD0B736917A42132007C75AD /* ListViewController.m in Sources */,
-				CDF48D1517A93AA3004A389C /* ListItem.m in Sources */,
+				CD01162817BFE50600EDC90F /* Note.m in Sources */,
+				CDF7D79E17C2510D00061171 /* otherNotesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

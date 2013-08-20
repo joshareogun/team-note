@@ -10,6 +10,7 @@
 
 #import "mainViewController.h"
 
+
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -22,9 +23,8 @@
     
     UIImage *img = [UIImage imageNamed:@"navTexture"];
     [[UINavigationBar appearance] setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
-    
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:img forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-
+    
     
     return YES;
 }

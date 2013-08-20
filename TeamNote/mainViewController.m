@@ -7,6 +7,8 @@
 //
 
 #import "mainViewController.h"
+#import "Note.h"
+#import "AppDelegate.h"
 
 
 @interface mainViewController ()
@@ -97,6 +99,8 @@
      titleString =  titleBarTextField.text;
     [listTitleArray addObject:titleString];
     
+    [self saveFile];
+    
 }
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
@@ -141,6 +145,8 @@
     [myArray insertObject:superButton atIndex:0];
     
     self.navBar.rightBarButtonItem = [myArray objectAtIndex:0];
+    
+    [self saveFile];
 
     
     
@@ -154,7 +160,35 @@
 
 -(void)saveFile
 {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    Note *thisNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:context];
+    
     NSString* finalText = self.mainTextView.text;
+    
+    thisNote.content = finalText;
+    
+
+    NSArray *tempArray = [finalText componentsSeparatedByString:@"\n"];
+    
+    NSString *theString = [tempArray objectAtIndex:0];
+    
+    thisNote.title = theString;
+    
+    thisNote.dateCreated = [NSDate date];
+    
+    NSError *error = nil;
+    
+    [context save:&error];
+    
+    if ([context save:&error])
+    {
+        NSLog(@"Saved!!!");
+        NSLog(@"%@", thisNote.title);
+    }
+    else
+        NSLog(@"Fail hahaha");
     
     
 }
