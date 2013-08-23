@@ -15,5 +15,10 @@
 @property(nonatomic, strong)NSString *noteTitle;
 @property(nonatomic, strong)NSString *noteContent;
 @property(nonatomic, strong)NSString *noteDate;
+@property(nonatomic, strong)NSManagedObjectContext *managedObjectContext; 
+
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
+
+@property(nonatomic, strong) NSArray *NoteTitles;
 
 @end

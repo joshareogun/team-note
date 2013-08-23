@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingsViewController : UITableViewController
-@property (weak, nonatomic) IBOutlet UISwitch *dropBoxSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *iCloudSwitch;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 
 @end

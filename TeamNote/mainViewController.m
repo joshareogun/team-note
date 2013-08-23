@@ -60,9 +60,17 @@
 {
     mainTextView.backgroundColor = [UIColor whiteColor];
     
-    //NSString *currentFilename;
-    
     self.navigationItem.title = titleString;
+    
+    UIButton *myOldButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 3, 41, 29)];
+    
+    [myOldButton setBackgroundImage:[UIImage imageNamed:@"navTexture"] forState:UIControlStateNormal];
+    [myOldButton setImage:[UIImage imageNamed:@"lines.png"] forState:UIControlStateNormal];
+    [myOldButton addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:myOldButton];
+    
+    self.navigationItem.leftBarButtonItem = back;
 }
 
 -(void)registerForKeyboardNotifications
@@ -99,7 +107,11 @@
      titleString =  titleBarTextField.text;
     [listTitleArray addObject:titleString];
     
-    [self saveFile];
+    if ([self.mainTextView.text length] != 0)
+    {
+        [self saveFile];
+    }
+
     
 }
 
@@ -146,7 +158,10 @@
     
     self.navBar.rightBarButtonItem = [myArray objectAtIndex:0];
     
-    [self saveFile];
+    if ([self.mainTextView.text length] != 0)
+    {
+        [self saveFile];
+    }
 
     
     
@@ -165,11 +180,11 @@
     
     Note *thisNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:context];
     
+    
     NSString* finalText = self.mainTextView.text;
     
     thisNote.content = finalText;
     
-
     NSArray *tempArray = [finalText componentsSeparatedByString:@"\n"];
     
     NSString *theString = [tempArray objectAtIndex:0];
@@ -179,8 +194,7 @@
     thisNote.dateCreated = [NSDate date];
     
     NSError *error = nil;
-    
-    [context save:&error];
+
     
     if ([context save:&error])
     {
@@ -189,15 +203,7 @@
     }
     else
         NSLog(@"Fail hahaha");
-    
-    
-}
 
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -207,6 +213,12 @@
         [self saveFile];
     }
 }
+
+- (void)popCurrentViewController
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 -(void)viewWillDisappear:(BOOL)animated{
     [[NSNotificationCenter defaultCenter] removeObserver:self];

@@ -22,10 +22,6 @@
 		CD0B733E17A2BA59007C75AD /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0B733C17A2BA59007C75AD /* MainStoryboard_iPad.storyboard */; };
 		CD0B734117A2BA59007C75AD /* TeamNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD0B733F17A2BA59007C75AD /* TeamNote.xcdatamodeld */; };
 		CD0B734F17A2BAA0007C75AD /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0B734E17A2BAA0007C75AD /* mainViewController.m */; };
-		CD0B735617A2C4E6007C75AD /* escheresque_ste_@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0B735417A2C4E6007C75AD /* escheresque_ste_@2X.png */; };
-		CD0B735717A2C4E6007C75AD /* escheresque_ste.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0B735517A2C4E6007C75AD /* escheresque_ste.png */; };
-		CD0B735A17A2C68E007C75AD /* cream_pixels_@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0B735817A2C68E007C75AD /* cream_pixels_@2X.png */; };
-		CD0B735B17A2C68E007C75AD /* cream_pixels.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0B735917A2C68E007C75AD /* cream_pixels.png */; };
 		CD0B735E17A2C9C3007C75AD /* lines@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0B735C17A2C9C3007C75AD /* lines@2x.png */; };
 		CD0B735F17A2C9C3007C75AD /* lines.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0B735D17A2C9C3007C75AD /* lines.png */; };
 		CD0B736217A2CBE2007C75AD /* cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0B736017A2CBE2007C75AD /* cog@2x.png */; };
@@ -34,7 +30,6 @@
 		CD0B736917A42132007C75AD /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0B736817A42132007C75AD /* ListViewController.m */; };
 		CD29C36C17A6742100C08389 /* green_dust.png in Resources */ = {isa = PBXBuildFile; fileRef = CD29C36B17A6742100C08389 /* green_dust.png */; };
 		CD66414117B712C200E084CB /* navTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = CD66414017B712C200E084CB /* navTexture.png */; };
-		CDE2450517BBF8FE009D51AB /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE2450417BBF8FE009D51AB /* connect.png */; };
 		CDE2451217BC003C009D51AB /* backButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE2451017BC003C009D51AB /* backButton@2x.png */; };
 		CDE2451317BC003C009D51AB /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE2451117BC003C009D51AB /* backButton.png */; };
 		CDF7D79E17C2510D00061171 /* otherNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF7D79D17C2510D00061171 /* otherNotesViewController.m */; };
@@ -43,15 +38,15 @@
 /* Begin PBXFileReference section */
 		CD01162617BFE50600EDC90F /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		CD01162717BFE50600EDC90F /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
-		CD0B731C17A2BA59007C75AD /* TeamNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD0B731C17A2BA59007C75AD /* CloudNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0B731F17A2BA59007C75AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CD0B732117A2BA59007C75AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CD0B732317A2BA59007C75AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CD0B732517A2BA59007C75AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		CD0B732917A2BA59007C75AD /* TeamNote-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TeamNote-Info.plist"; sourceTree = "<group>"; };
+		CD0B732917A2BA59007C75AD /* CloudNote-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CloudNote-Info.plist"; sourceTree = "<group>"; };
 		CD0B732B17A2BA59007C75AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CD0B732D17A2BA59007C75AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CD0B732F17A2BA59007C75AD /* TeamNote-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TeamNote-Prefix.pch"; sourceTree = "<group>"; };
+		CD0B732F17A2BA59007C75AD /* CloudNote-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CloudNote-Prefix.pch"; sourceTree = "<group>"; };
 		CD0B733017A2BA59007C75AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CD0B733117A2BA59007C75AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CD0B733317A2BA59007C75AD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -62,10 +57,6 @@
 		CD0B734017A2BA59007C75AD /* TeamNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeamNote.xcdatamodel; sourceTree = "<group>"; };
 		CD0B734D17A2BAA0007C75AD /* mainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };
 		CD0B734E17A2BAA0007C75AD /* mainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
-		CD0B735417A2C4E6007C75AD /* escheresque_ste_@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "escheresque_ste_@2X.png"; sourceTree = "<group>"; };
-		CD0B735517A2C4E6007C75AD /* escheresque_ste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = escheresque_ste.png; sourceTree = "<group>"; };
-		CD0B735817A2C68E007C75AD /* cream_pixels_@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cream_pixels_@2X.png"; sourceTree = "<group>"; };
-		CD0B735917A2C68E007C75AD /* cream_pixels.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cream_pixels.png; sourceTree = "<group>"; };
 		CD0B735C17A2C9C3007C75AD /* lines@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lines@2x.png"; sourceTree = "<group>"; };
 		CD0B735D17A2C9C3007C75AD /* lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lines.png; sourceTree = "<group>"; };
 		CD0B736017A2CBE2007C75AD /* cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@2x.png"; sourceTree = "<group>"; };
@@ -76,7 +67,6 @@
 		CD0B736817A42132007C75AD /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		CD29C36B17A6742100C08389 /* green_dust.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_dust.png; sourceTree = "<group>"; };
 		CD66414017B712C200E084CB /* navTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navTexture.png; sourceTree = "<group>"; };
-		CDE2450417BBF8FE009D51AB /* connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connect.png; sourceTree = "<group>"; };
 		CDE2451017BC003C009D51AB /* backButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backButton@2x.png"; sourceTree = "<group>"; };
 		CDE2451117BC003C009D51AB /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
 		CDF7D79C17C2510D00061171 /* otherNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = otherNotesViewController.h; sourceTree = "<group>"; };
@@ -110,7 +100,7 @@
 		CD0B731D17A2BA59007C75AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CD0B731C17A2BA59007C75AD /* TeamNote.app */,
+				CD0B731C17A2BA59007C75AD /* CloudNote.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,21 +119,11 @@
 		CD0B732717A2BA59007C75AD /* TeamNote */ = {
 			isa = PBXGroup;
 			children = (
-				CD0B733017A2BA59007C75AD /* AppDelegate.h */,
-				CD0B733117A2BA59007C75AD /* AppDelegate.m */,
-				CD0B734D17A2BAA0007C75AD /* mainViewController.h */,
-				CD0B734E17A2BAA0007C75AD /* mainViewController.m */,
-				CD0B736417A420B9007C75AD /* SettingsViewController.h */,
-				CD0B736517A420B9007C75AD /* SettingsViewController.m */,
-				CD0B736717A42132007C75AD /* ListViewController.h */,
-				CD0B736817A42132007C75AD /* ListViewController.m */,
-				CD0B733917A2BA59007C75AD /* MainStoryboard_iPhone.storyboard */,
-				CDF7D79C17C2510D00061171 /* otherNotesViewController.h */,
-				CDF7D79D17C2510D00061171 /* otherNotesViewController.m */,
-				CD0B733C17A2BA59007C75AD /* MainStoryboard_iPad.storyboard */,
-				CD0B733F17A2BA59007C75AD /* TeamNote.xcdatamodeld */,
+				CD5ADDFE17C41C2900D889FB /* App Delegate */,
+				CD5ADDFF17C41C3700D889FB /* View Controllers */,
 				CD01162617BFE50600EDC90F /* Note.h */,
 				CD01162717BFE50600EDC90F /* Note.m */,
+				CD5ADDFD17C41C1A00D889FB /* StoryBoards */,
 				CD0B732817A2BA59007C75AD /* Supporting Files */,
 			);
 			path = TeamNote;
@@ -152,23 +132,19 @@
 		CD0B732817A2BA59007C75AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CD0B735417A2C4E6007C75AD /* escheresque_ste_@2X.png */,
-				CD0B735517A2C4E6007C75AD /* escheresque_ste.png */,
-				CD0B735817A2C68E007C75AD /* cream_pixels_@2X.png */,
+				CD5ADE0017C41C5000D889FB /* Data */,
 				CD66414017B712C200E084CB /* navTexture.png */,
 				CDE2451017BC003C009D51AB /* backButton@2x.png */,
 				CDE2451117BC003C009D51AB /* backButton.png */,
-				CDE2450417BBF8FE009D51AB /* connect.png */,
-				CD0B735917A2C68E007C75AD /* cream_pixels.png */,
 				CD0B735C17A2C9C3007C75AD /* lines@2x.png */,
 				CD0B735D17A2C9C3007C75AD /* lines.png */,
 				CD0B736017A2CBE2007C75AD /* cog@2x.png */,
 				CD29C36B17A6742100C08389 /* green_dust.png */,
 				CD0B736117A2CBE2007C75AD /* cog.png */,
-				CD0B732917A2BA59007C75AD /* TeamNote-Info.plist */,
+				CD0B732917A2BA59007C75AD /* CloudNote-Info.plist */,
 				CD0B732A17A2BA59007C75AD /* InfoPlist.strings */,
 				CD0B732D17A2BA59007C75AD /* main.m */,
-				CD0B732F17A2BA59007C75AD /* TeamNote-Prefix.pch */,
+				CD0B732F17A2BA59007C75AD /* CloudNote-Prefix.pch */,
 				CD0B733317A2BA59007C75AD /* Default.png */,
 				CD0B733517A2BA59007C75AD /* Default@2x.png */,
 				CD0B733717A2BA59007C75AD /* Default-568h@2x.png */,
@@ -176,12 +152,53 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CD5ADDFD17C41C1A00D889FB /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				CD0B733917A2BA59007C75AD /* MainStoryboard_iPhone.storyboard */,
+				CD0B733C17A2BA59007C75AD /* MainStoryboard_iPad.storyboard */,
+			);
+			name = StoryBoards;
+			sourceTree = "<group>";
+		};
+		CD5ADDFE17C41C2900D889FB /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				CD0B733017A2BA59007C75AD /* AppDelegate.h */,
+				CD0B733117A2BA59007C75AD /* AppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		CD5ADDFF17C41C3700D889FB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD0B734D17A2BAA0007C75AD /* mainViewController.h */,
+				CD0B734E17A2BAA0007C75AD /* mainViewController.m */,
+				CD0B736417A420B9007C75AD /* SettingsViewController.h */,
+				CD0B736517A420B9007C75AD /* SettingsViewController.m */,
+				CD0B736717A42132007C75AD /* ListViewController.h */,
+				CD0B736817A42132007C75AD /* ListViewController.m */,
+				CDF7D79C17C2510D00061171 /* otherNotesViewController.h */,
+				CDF7D79D17C2510D00061171 /* otherNotesViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CD5ADE0017C41C5000D889FB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CD0B733F17A2BA59007C75AD /* TeamNote.xcdatamodeld */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CD0B731B17A2BA59007C75AD /* TeamNote */ = {
+		CD0B731B17A2BA59007C75AD /* CloudNote */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CD0B734A17A2BA59007C75AD /* Build configuration list for PBXNativeTarget "TeamNote" */;
+			buildConfigurationList = CD0B734A17A2BA59007C75AD /* Build configuration list for PBXNativeTarget "CloudNote" */;
 			buildPhases = (
 				CD0B731817A2BA59007C75AD /* Sources */,
 				CD0B731917A2BA59007C75AD /* Frameworks */,
@@ -191,9 +208,9 @@
 			);
 			dependencies = (
 			);
-			name = TeamNote;
+			name = CloudNote;
 			productName = TeamNote;
-			productReference = CD0B731C17A2BA59007C75AD /* TeamNote.app */;
+			productReference = CD0B731C17A2BA59007C75AD /* CloudNote.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +222,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Joshua Areogun";
 			};
-			buildConfigurationList = CD0B731717A2BA59007C75AD /* Build configuration list for PBXProject "TeamNote" */;
+			buildConfigurationList = CD0B731717A2BA59007C75AD /* Build configuration list for PBXProject "CloudNote" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -217,7 +234,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CD0B731B17A2BA59007C75AD /* TeamNote */,
+				CD0B731B17A2BA59007C75AD /* CloudNote */,
 			);
 		};
 /* End PBXProject section */
@@ -233,17 +250,12 @@
 				CD0B733817A2BA59007C75AD /* Default-568h@2x.png in Resources */,
 				CD0B733B17A2BA59007C75AD /* MainStoryboard_iPhone.storyboard in Resources */,
 				CD0B733E17A2BA59007C75AD /* MainStoryboard_iPad.storyboard in Resources */,
-				CD0B735617A2C4E6007C75AD /* escheresque_ste_@2X.png in Resources */,
-				CD0B735717A2C4E6007C75AD /* escheresque_ste.png in Resources */,
-				CD0B735A17A2C68E007C75AD /* cream_pixels_@2X.png in Resources */,
-				CD0B735B17A2C68E007C75AD /* cream_pixels.png in Resources */,
 				CD0B735E17A2C9C3007C75AD /* lines@2x.png in Resources */,
 				CD0B735F17A2C9C3007C75AD /* lines.png in Resources */,
 				CD0B736217A2CBE2007C75AD /* cog@2x.png in Resources */,
 				CD0B736317A2CBE2007C75AD /* cog.png in Resources */,
 				CD29C36C17A6742100C08389 /* green_dust.png in Resources */,
 				CD66414117B712C200E084CB /* navTexture.png in Resources */,
-				CDE2450517BBF8FE009D51AB /* connect.png in Resources */,
 				CDE2451217BC003C009D51AB /* backButton@2x.png in Resources */,
 				CDE2451317BC003C009D51AB /* backButton.png in Resources */,
 			);
@@ -359,9 +371,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TeamNote/TeamNote-Prefix.pch";
-				INFOPLIST_FILE = "TeamNote/TeamNote-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "TeamNote/CloudNote-Prefix.pch";
+				INFOPLIST_FILE = "TeamNote/CloudNote-Info.plist";
+				PRODUCT_NAME = CloudNote;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -370,9 +382,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TeamNote/TeamNote-Prefix.pch";
-				INFOPLIST_FILE = "TeamNote/TeamNote-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "TeamNote/CloudNote-Prefix.pch";
+				INFOPLIST_FILE = "TeamNote/CloudNote-Info.plist";
+				PRODUCT_NAME = CloudNote;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -380,7 +392,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CD0B731717A2BA59007C75AD /* Build configuration list for PBXProject "TeamNote" */ = {
+		CD0B731717A2BA59007C75AD /* Build configuration list for PBXProject "CloudNote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CD0B734817A2BA59007C75AD /* Debug */,
@@ -389,7 +401,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CD0B734A17A2BA59007C75AD /* Build configuration list for PBXNativeTarget "TeamNote" */ = {
+		CD0B734A17A2BA59007C75AD /* Build configuration list for PBXNativeTarget "CloudNote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CD0B734B17A2BA59007C75AD /* Debug */,

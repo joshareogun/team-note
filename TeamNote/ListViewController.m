@@ -39,29 +39,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self customizeBackbutton];
+    [self customizations];
     [self dataFetch];
     
     self.myTableView.delegate = self;
     self.myTableView.dataSource = self;
     
-
-    
 }
 
--(void)customizeBackbutton
+-(void)viewWillAppear:(BOOL)animated
 {
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"connect.png"]];
+    [self dataFetch];
     
-    UIButton *myOldButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 3, 41, 29)];
+    [self.myTableView reloadData];
+}
+
+-(void)customizations
+{
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [myOldButton setBackgroundImage:[UIImage imageNamed:@"navTexture"] forState:UIControlStateNormal];
-    [myOldButton setImage:[UIImage imageNamed:@"backButton.png"] forState:UIControlStateNormal];
-    [myOldButton addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:myOldButton];
-    
-    self.navigationItem.leftBarButtonItem = back;
+    self.navigationItem.title = @"All Notes";
 }
 
 -(void)popCurrentViewController
@@ -88,7 +85,7 @@
     self.NoteTitles = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     allTopics = [[NSMutableArray alloc] init];
     allContent = [[NSMutableArray alloc] init];
-    //allDates = [[NSMutableArray alloc]init];
+    allDates = [[NSMutableArray alloc]init];
     
     for (Note *note in NoteTitles)
     {
@@ -130,6 +127,26 @@
 
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSManagedObject *itemToDelete = [NoteTitles objectAtIndex:indexPath.row];
+        [managedObjectContext deleteObject:itemToDelete];
+        
+        [allTopics removeObjectAtIndex:indexPath.row];
+        [allContent removeObjectAtIndex:indexPath.row];
+        [allDates removeObjectAtIndex:indexPath.row];
+        
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+        
+        NSError *error = nil;
+        if (![managedObjectContext save:&error]) {
+            NSLog(@"UnSaved Context Bro!!");
+        }
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
