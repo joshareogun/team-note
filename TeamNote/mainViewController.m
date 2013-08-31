@@ -17,13 +17,15 @@
     NSMutableArray * listTitleArray;
     NSString *titleString;
     UIBarButtonItem *doneButton;
+    BOOL isObjectSaved;
+
 }
 
 @end
 
 @implementation mainViewController
 
-@synthesize mainTextView, titleBarTextField, originalSettingsButton, navBar, realButton;
+@synthesize mainTextView, titleBarTextField, originalSettingsButton, navBar, realButton, NoteTitles;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -111,7 +113,6 @@
     {
         [self saveFile];
     }
-
     
 }
 
@@ -122,7 +123,6 @@
     doneButton.tintColor = [UIColor clearColor];
     
     NSMutableArray *myArray = [self.navBar.rightBarButtonItems mutableCopy];
-    
     
     [myArray removeObject:originalSettingsButton];
     [myArray insertObject:doneButton atIndex:0];
@@ -160,7 +160,14 @@
     
     if ([self.mainTextView.text length] != 0)
     {
-        [self saveFile];
+        if (isObjectSaved == NO)
+        {
+            [self saveFile];
+        }
+        else
+        {
+            [self updateFile];
+        }
     }
 
     
@@ -193,6 +200,8 @@
     
     thisNote.dateCreated = [NSDate date];
     
+    isObjectSaved = YES;
+    
     NSError *error = nil;
 
     
@@ -203,6 +212,42 @@
     }
     else
         NSLog(@"Fail hahaha");
+
+}
+
+-(void)updateFile
+{
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+    
+    
+    NSString *myString = mainTextView.text;
+    NSArray *arr = [myString componentsSeparatedByString:@"\n"];
+    
+    NSString *newTitleString = [arr objectAtIndex:0];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title == %@",newTitleString ];
+    
+    [request setPredicate:pred];
+    
+    NSError *error;
+    
+    self.NoteTitles = [context executeFetchRequest:request error:&error];
+    
+    for(Note *note in NoteTitles)
+    {
+        note.title = newTitleString;
+        note.content = myString;
+    }
+    
+    if (![context save:&error])
+    {
+        NSLog(@"Error Occured while saving the data");
+    }
 
 }
 

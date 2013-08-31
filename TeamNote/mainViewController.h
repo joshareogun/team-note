@@ -19,4 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *realButton;
 
+@property(nonatomic, strong) NSArray *NoteTitles;
+
 @end
