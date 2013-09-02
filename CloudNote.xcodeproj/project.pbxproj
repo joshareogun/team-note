@@ -30,6 +30,11 @@
 		CD0B736917A42132007C75AD /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0B736817A42132007C75AD /* ListViewController.m */; };
 		CD29C36C17A6742100C08389 /* green_dust.png in Resources */ = {isa = PBXBuildFile; fileRef = CD29C36B17A6742100C08389 /* green_dust.png */; };
 		CD66414117B712C200E084CB /* navTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = CD66414017B712C200E084CB /* navTexture.png */; };
+		CDD7787917D4EFAA004F6912 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD7787817D4EFAA004F6912 /* Social.framework */; };
+		CDD7787F17D5044E004F6912 /* fontSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD7787E17D5044E004F6912 /* fontSettingsViewController.m */; };
+		CDD7788117D50941004F6912 /* Raleway Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = CDD7788017D50941004F6912 /* Raleway Thin.otf */; };
+		CDD7788A17D509C4004F6912 /* typeFaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD7788917D509C3004F6912 /* typeFaceViewController.m */; };
+		CDD7788D17D509CF004F6912 /* FontsizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD7788C17D509CF004F6912 /* FontsizeViewController.m */; };
 		CDE2451217BC003C009D51AB /* backButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE2451017BC003C009D51AB /* backButton@2x.png */; };
 		CDE2451317BC003C009D51AB /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE2451117BC003C009D51AB /* backButton.png */; };
 		CDF7D79E17C2510D00061171 /* otherNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF7D79D17C2510D00061171 /* otherNotesViewController.m */; };
@@ -67,6 +72,14 @@
 		CD0B736817A42132007C75AD /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		CD29C36B17A6742100C08389 /* green_dust.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_dust.png; sourceTree = "<group>"; };
 		CD66414017B712C200E084CB /* navTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navTexture.png; sourceTree = "<group>"; };
+		CDD7787817D4EFAA004F6912 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		CDD7787D17D5044E004F6912 /* fontSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fontSettingsViewController.h; sourceTree = "<group>"; };
+		CDD7787E17D5044E004F6912 /* fontSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fontSettingsViewController.m; sourceTree = "<group>"; };
+		CDD7788017D50941004F6912 /* Raleway Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway Thin.otf"; sourceTree = "<group>"; };
+		CDD7788817D509C3004F6912 /* typeFaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = typeFaceViewController.h; sourceTree = "<group>"; };
+		CDD7788917D509C3004F6912 /* typeFaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = typeFaceViewController.m; sourceTree = "<group>"; };
+		CDD7788B17D509CF004F6912 /* FontsizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontsizeViewController.h; sourceTree = "<group>"; };
+		CDD7788C17D509CF004F6912 /* FontsizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontsizeViewController.m; sourceTree = "<group>"; };
 		CDE2451017BC003C009D51AB /* backButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backButton@2x.png"; sourceTree = "<group>"; };
 		CDE2451117BC003C009D51AB /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
 		CDF7D79C17C2510D00061171 /* otherNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = otherNotesViewController.h; sourceTree = "<group>"; };
@@ -78,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD7787917D4EFAA004F6912 /* Social.framework in Frameworks */,
 				CD0B732017A2BA59007C75AD /* UIKit.framework in Frameworks */,
 				CD0B732217A2BA59007C75AD /* Foundation.framework in Frameworks */,
 				CD0B732417A2BA59007C75AD /* CoreGraphics.framework in Frameworks */,
@@ -108,6 +122,7 @@
 		CD0B731E17A2BA59007C75AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CDD7787817D4EFAA004F6912 /* Social.framework */,
 				CD0B731F17A2BA59007C75AD /* UIKit.framework */,
 				CD0B732117A2BA59007C75AD /* Foundation.framework */,
 				CD0B732317A2BA59007C75AD /* CoreGraphics.framework */,
@@ -138,6 +153,7 @@
 				CDE2451117BC003C009D51AB /* backButton.png */,
 				CD0B735C17A2C9C3007C75AD /* lines@2x.png */,
 				CD0B735D17A2C9C3007C75AD /* lines.png */,
+				CDD7788017D50941004F6912 /* Raleway Thin.otf */,
 				CD0B736017A2CBE2007C75AD /* cog@2x.png */,
 				CD29C36B17A6742100C08389 /* green_dust.png */,
 				CD0B736117A2CBE2007C75AD /* cog.png */,
@@ -181,6 +197,12 @@
 				CD0B736817A42132007C75AD /* ListViewController.m */,
 				CDF7D79C17C2510D00061171 /* otherNotesViewController.h */,
 				CDF7D79D17C2510D00061171 /* otherNotesViewController.m */,
+				CDD7787D17D5044E004F6912 /* fontSettingsViewController.h */,
+				CDD7787E17D5044E004F6912 /* fontSettingsViewController.m */,
+				CDD7788817D509C3004F6912 /* typeFaceViewController.h */,
+				CDD7788917D509C3004F6912 /* typeFaceViewController.m */,
+				CDD7788B17D509CF004F6912 /* FontsizeViewController.h */,
+				CDD7788C17D509CF004F6912 /* FontsizeViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -258,6 +280,7 @@
 				CD66414117B712C200E084CB /* navTexture.png in Resources */,
 				CDE2451217BC003C009D51AB /* backButton@2x.png in Resources */,
 				CDE2451317BC003C009D51AB /* backButton.png in Resources */,
+				CDD7788117D50941004F6912 /* Raleway Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +299,9 @@
 				CD0B736917A42132007C75AD /* ListViewController.m in Sources */,
 				CD01162817BFE50600EDC90F /* Note.m in Sources */,
 				CDF7D79E17C2510D00061171 /* otherNotesViewController.m in Sources */,
+				CDD7787F17D5044E004F6912 /* fontSettingsViewController.m in Sources */,
+				CDD7788A17D509C4004F6912 /* typeFaceViewController.m in Sources */,
+				CDD7788D17D509CF004F6912 /* FontsizeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

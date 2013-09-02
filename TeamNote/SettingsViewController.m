@@ -32,6 +32,11 @@
     [self customizeBackbutton];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+     self.navigationController.toolbarHidden = YES;
+}
+
 -(void)customizeBackbutton
 {
     
@@ -44,6 +49,7 @@
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:myOldButton];
     
     self.navigationItem.leftBarButtonItem = back;
+    self.navigationController.toolbarHidden = YES;
     
 }
 

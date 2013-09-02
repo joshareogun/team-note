@@ -25,7 +25,7 @@
 
 @implementation ListViewController
 
-@synthesize shareButton, NoteContents, NoteTitles, myTableView, managedObjectContext;
+@synthesize  NoteContents, NoteTitles, myTableView, managedObjectContext;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -52,13 +52,18 @@
     [self dataFetch];
     
     [self.myTableView reloadData];
+    self.navigationController.toolbarHidden = YES;
 }
 
 -(void)customizations
 {
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    self.navigationItem.leftBarButtonItem.title = @"Options";
     
     self.navigationItem.title = @"All Notes";
+    
+    self.navigationController.toolbarHidden = YES;
 }
 
 -(void)popCurrentViewController
@@ -129,6 +134,20 @@
     return cell;
 }
 
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    
+    if (editing)
+    {
+        self.editButtonItem.title = NSLocalizedString(@"Done", @"Done");
+    }
+    else
+    {
+        self.editButtonItem.title = NSLocalizedString(@"Options", @"Options");
+    }
+}
+
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -160,7 +179,6 @@
         destinationVC.noteTitle = [allTopics objectAtIndex:indexPath.row];
         destinationVC.noteContent = [allContent objectAtIndex:indexPath.row];
         destinationVC.noteDate = [stringDates objectAtIndex:indexPath.row];
-        
     }
 }
 

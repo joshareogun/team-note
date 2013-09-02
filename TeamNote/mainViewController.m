@@ -55,7 +55,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    [self customizeAppearances];
 }
 
 -(void)customizeAppearances
@@ -73,6 +73,8 @@
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:myOldButton];
     
     self.navigationItem.leftBarButtonItem = back;
+    self.navigationController.toolbarHidden = NO;
+    self.navigationController.hidesBottomBarWhenPushed = YES;
 }
 
 -(void)registerForKeyboardNotifications
@@ -169,9 +171,34 @@
             [self updateFile];
         }
     }
+}
 
+- (IBAction)shareButtonPressed:(id)sender
+{
+    NSString *sharedText = self.mainTextView.text;
     
+    NSArray *SharedData = @[sharedText];
     
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:SharedData applicationActivities:nil];
+    
+    [self presentViewController:activityViewController animated:YES completion:^{}];
+}
+
+
+- (IBAction)addbuttonPressed:(id)sender
+{
+    [mainTextView setText:@""];
+    isObjectSaved = NO;
+}
+
+- (IBAction)trashButtonPressed:(id)sender
+{
+    if (!mainTextView.text.length == 0)
+    {
+        [self deleteFile];
+        isObjectSaved = NO;
+        [mainTextView setText:@""];
+    }
 }
 
 -(void)moveToSettings
@@ -249,6 +276,40 @@
         NSLog(@"Error Occured while saving the data");
     }
 
+}
+
+-(void)deleteFile
+{
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+    
+    
+    NSString *myString = mainTextView.text;
+    NSArray *arr = [myString componentsSeparatedByString:@"\n"];
+    
+    NSString *newTitleString = [arr objectAtIndex:0];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title == %@",newTitleString ];
+    
+    [request setPredicate:pred];
+    
+    NSError *error;
+    
+    self.NoteTitles = [context executeFetchRequest:request error:&error];
+    
+    NSManagedObject *itemToDelete = [self.NoteTitles objectAtIndex:0];
+    [context deleteObject:itemToDelete];
+    
+    if (![context save:&error])
+    {
+        NSLog(@"Error Occured while saving the data");
+    }
+
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

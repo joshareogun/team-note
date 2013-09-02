@@ -16,7 +16,6 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
 
 @end
