@@ -14,8 +14,6 @@
 
 @implementation SettingsViewController
 
-@synthesize iCloudSwitch;
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -34,34 +32,20 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-     self.navigationController.toolbarHidden = YES;
+    self.navigationController.toolbarHidden = YES;
 }
 
 -(void)customizeBackbutton
 {
-    
-    UIButton *myOldButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 3, 41, 29)];
-    
-    [myOldButton setBackgroundImage:[UIImage imageNamed:@"navTexture"] forState:UIControlStateNormal];
-    [myOldButton setImage:[UIImage imageNamed:@"backButton.png"] forState:UIControlStateNormal];
-    [myOldButton addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:myOldButton];
-    
-    self.navigationItem.leftBarButtonItem = back;
     self.navigationController.toolbarHidden = YES;
     
+    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Avenir Next" size:15.0],NSFontAttributeName,
+                                                                   nil] forState:UIControlStateNormal];
 }
 
-- (void)popCurrentViewController
+- (IBAction)dropBoxSwitchToggled:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-
-- (IBAction)iCloudSwitchToggled:(id)sender
-{
-    
+    [[DBAccountManager sharedManager] linkFromController:self];
 }
 
 -(void)returnToEdit

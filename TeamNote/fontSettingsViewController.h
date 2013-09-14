@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface fontSettingsViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typefaceLabel;
 
 @end

@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Note.h"
 #import "otherNotesViewController.h"
+#import "mainViewController.h"
 
 @interface ListViewController ()
 {
@@ -19,6 +20,8 @@
     NSMutableArray *filteredString;
     NSMutableArray *stringDates;
     BOOL isFiltered;
+    
+    NSString *myTitle;
 }
 
 @end
@@ -52,18 +55,37 @@
     [self dataFetch];
     
     [self.myTableView reloadData];
-    self.navigationController.toolbarHidden = YES;
+    self.navigationController.toolbarHidden = NO;
+}
+
+- (IBAction)composeNotePressed:(id)sender
+{
+    [self showTopicMessage];
 }
 
 -(void)customizations
 {
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.navigationItem.leftBarButtonItem.title = @"Options";
+    self.navigationItem.rightBarButtonItem.title = @"Edit";
+    
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Avenir Next" size:15.0],NSFontAttributeName,
+                                                                  nil] forState:UIControlStateNormal];
     
     self.navigationItem.title = @"All Notes";
     
-    self.navigationController.toolbarHidden = YES;
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Storage" style:UIBarButtonItemStyleBordered target:self action:@selector(popCurrentViewController)];
+    
+    self.navigationItem.leftBarButtonItem = back;
+    
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    
+    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Avenir Next" size:15.0],NSFontAttributeName,
+                                                                   nil] forState:UIControlStateNormal];
+    
+    self.navigationController.toolbarHidden = NO;
+
 }
 
 -(void)popCurrentViewController
@@ -113,9 +135,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"cell";
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Note *note = [NoteTitles objectAtIndex:indexPath.row];
+    
+    //cell.backgroundColor = [UIColor colorWithRed:0.4000 green:0.4000 blue:0.4000 alpha:1.0000];
     
     cell.textLabel.text = note.title;
     cell.textLabel.font = [UIFont fontWithName:@"Avenir Next" size:17.0];
@@ -144,7 +169,7 @@
     }
     else
     {
-        self.editButtonItem.title = NSLocalizedString(@"Options", @"Options");
+        self.editButtonItem.title = NSLocalizedString(@"Edit", @"Edit");
     }
 }
 
@@ -168,6 +193,52 @@
     }
 }
 
+-(void)showTopicMessage
+{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter Title" message:@"enter a title for this note" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
+    
+    message.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    [message show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *button = [alertView buttonTitleAtIndex:1];
+    
+    if ([button isEqualToString:@"Done"])
+    {
+        UITextField *title = [alertView textFieldAtIndex:0];
+        myTitle = title.text;
+    }
+    
+    NSLog(@" %@ ", myTitle);
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSString *button = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    if ([button isEqualToString:@"Done"])
+    {
+        [self performSegueWithIdentifier:@"composeNote" sender:self];
+    }
+}
+
+-(BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
+{
+    NSString *input = [[alertView textFieldAtIndex:0] text];
+    if([input length] >= 1)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+ 
+    }
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"archiveDetail"])
@@ -180,6 +251,14 @@
         destinationVC.noteContent = [allContent objectAtIndex:indexPath.row];
         destinationVC.noteDate = [stringDates objectAtIndex:indexPath.row];
     }
+    
+    else if ([segue.identifier isEqualToString:@"composeNote"])
+    {
+        mainViewController *destVC = segue.destinationViewController;
+        
+        destVC.myTitle = myTitle;
+    }
+    
 }
 
 @end

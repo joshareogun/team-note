@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ListViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 
 @property(nonatomic, strong) NSArray *NoteTitles;

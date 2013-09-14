@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 #import "mainViewController.h"
-
+#import <Dropbox/Dropbox.h>
 
 @implementation AppDelegate
 
@@ -20,10 +20,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName, [UIFont fontWithName:@"Avenir Next" size:19.0], NSFontAttributeName, nil]];
     
-    UIImage *img = [UIImage imageNamed:@"navTexture"];
-    [[UINavigationBar appearance] setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:img forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.3255 green:0.7725 blue:0.6941 alpha:1.0000]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UIToolbar appearance] setBarTintColor:[UIColor colorWithRed:0.3255 green:0.7725 blue:0.6941 alpha:1.0000]];
+    
+    DBAccountManager *accountMnger = [[DBAccountManager alloc] initWithAppKey:@"pfba7g6bhicpxmf" secret:@"ggc3t3ppurv5xqq"];
+    [DBAccountManager setSharedManager:accountMnger];
+    
+    DBAccount *account = accountMnger.linkedAccount;
+    
+    if (account)
+    {
+        DBFilesystem *fileSystem = [[DBFilesystem alloc] initWithAccount:account];
+        [DBFilesystem setSharedFilesystem:fileSystem];
+    }
     
     
     return YES;
@@ -55,6 +68,21 @@
 {
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+//DropBox Integration methods begin here.
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    DBAccount *account = [[DBAccountManager sharedManager] handleOpenURL:url];
+    if (account)
+    {
+        NSLog(@"Quickjot Successfully linked to the user's dropbox account");
+        
+        return YES;
+    }
+    
+    return NO;
 }
 
 - (void)saveContext

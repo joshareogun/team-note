@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface otherNotesViewController : UIViewController <UITextViewDelegate>
+@interface otherNotesViewController : UIViewController <UITextViewDelegate, UIAlertViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *myTextView;
 
@@ -18,6 +18,8 @@
 @property(nonatomic, strong)NSManagedObjectContext *managedObjectContext; 
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
+
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 
 @property(nonatomic, strong) NSArray *NoteTitles;
 

@@ -14,6 +14,8 @@
 
 @implementation fontSettingsViewController
 
+@synthesize sizeLabel, typefaceLabel;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -26,7 +28,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self customizations];
 
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self customizations];
+    self.navigationController.toolbarHidden = YES;
+}
+
+-(void)customizations
+{
+    self.navigationItem.title = @"Font Settings";
+    
+    self.navigationController.toolbarHidden = YES;
+
+    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Avenir Next" size:15.0],NSFontAttributeName,
+                                                                    nil] forState:UIControlStateNormal];
+    
+    NSString *size = [[NSUserDefaults standardUserDefaults] objectForKey:@"finalFontSize"];
+    NSString *typeFace = [[NSUserDefaults standardUserDefaults] objectForKey:@"fontName"];
+    
+    self.sizeLabel.text = size;
+    self.typefaceLabel.text = typeFace;
+}
+
 
 @end
