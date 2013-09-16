@@ -198,7 +198,7 @@
     
     textFieldTitle = titleTextField.text;
     
-    //call a title Update Method instead
+    //call a title Update Method here
     
     [self updateFileTitle];
 }
@@ -344,6 +344,7 @@
     {
         note.title = noteTitle;
         note.content = myString;
+        note.dateCreated = [NSDate date];
     }
     
     if (![managedObjectContext save:&error])
@@ -374,6 +375,7 @@
     {
         note.title = textFieldTitle;
         note.content = myTextView.text;
+        note.dateCreated = [NSDate date];
     }
     
     if (![context save:&error])

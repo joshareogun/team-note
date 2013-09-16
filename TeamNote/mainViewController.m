@@ -58,7 +58,7 @@
     
     mainTextView.delegate = self;
     titleTextField.delegate = self;
-    
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -68,8 +68,9 @@
 
 -(void)customizeAppearances
 {
-    self.titleTextField.hidden = NO;
     self.titleTextField.text = myTitle;
+    
+    //[titleTextField setBackgroundColor:[UIColor colorWithRed:0.3255 green:0.7725 blue:0.6941 alpha:1.0000]];
     
     mainTextView.backgroundColor = [UIColor whiteColor];
     
@@ -164,6 +165,11 @@
             [self updateFile];
         }
     }
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [titleTextField setHidden:NO];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -326,6 +332,7 @@
     {
         note.title = self.myTitle;
         note.content = myString;
+        note.dateCreated = [NSDate date];
     }
     
     if (![context save:&error])
@@ -355,6 +362,7 @@
     {
         note.title = textFieldTitle;
         note.content = mainTextView.text;
+        note.dateCreated = [NSDate date];
     }
     
     if (![context save:&error])
