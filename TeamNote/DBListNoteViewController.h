@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <DropBox/Dropbox.h>
+#import "dropBoxNewNoteViewController.h"
 
-@interface DBListNoteViewController : UIViewController
+@interface DBListNoteViewController : UIViewController <UIAlertViewDelegate, UITextViewDelegate, UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextView *myTextView;
+@property (weak, nonatomic) IBOutlet UITextField *titletextField;
+
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
+@property (weak, nonatomic) DBFile *myFile;
+@property (weak, nonatomic) NSString *fileTitle;
+
 
 @end

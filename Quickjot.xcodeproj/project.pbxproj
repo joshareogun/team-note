@@ -16,7 +16,6 @@
 		CD0B732E17A2BA59007C75AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0B732D17A2BA59007C75AD /* main.m */; };
 		CD0B733217A2BA59007C75AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0B733117A2BA59007C75AD /* AppDelegate.m */; };
 		CD0B733B17A2BA59007C75AD /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0B733917A2BA59007C75AD /* MainStoryboard_iPhone.storyboard */; };
-		CD0B733E17A2BA59007C75AD /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0B733C17A2BA59007C75AD /* MainStoryboard_iPad.storyboard */; };
 		CD0B734117A2BA59007C75AD /* TeamNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD0B733F17A2BA59007C75AD /* TeamNote.xcdatamodeld */; };
 		CD0B734F17A2BAA0007C75AD /* mainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0B734E17A2BAA0007C75AD /* mainViewController.m */; };
 		CD0B736617A420B9007C75AD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0B736517A420B9007C75AD /* SettingsViewController.m */; };
@@ -27,6 +26,9 @@
 		CD0B784917DDEB60004BE6DD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0B784817DDEB60004BE6DD /* SystemConfiguration.framework */; };
 		CD0B784B17DDEB6C004BE6DD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0B784A17DDEB6C004BE6DD /* QuartzCore.framework */; };
 		CD0B784D17DDEB7F004BE6DD /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0B784C17DDEB7F004BE6DD /* libc++.dylib */; };
+		CD38E8C317EE22550046923C /* StartScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD38E8C217EE22550046923C /* StartScreenViewController.m */; };
+		CD3E556F17EFB78E0071CFDE /* iPhoneSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3E556D17EFB78E0071CFDE /* iPhoneSettings.png */; };
+		CD3E557017EFB78E0071CFDE /* iPhoneSpotlight.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3E556E17EFB78E0071CFDE /* iPhoneSpotlight.png */; };
 		CD66724C17E2133500787558 /* dropBoxNewNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD66724B17E2133500787558 /* dropBoxNewNoteViewController.m */; };
 		CD66725217E2151900787558 /* DBListNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD66725117E2151900787558 /* DBListNoteViewController.m */; };
 		CD66725717E2161E00787558 /* DBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD66725617E2161E00787558 /* DBViewController.m */; };
@@ -50,19 +52,18 @@
 /* Begin PBXFileReference section */
 		CD01162617BFE50600EDC90F /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		CD01162717BFE50600EDC90F /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
-		CD0B731C17A2BA59007C75AD /* CloudNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD0B731C17A2BA59007C75AD /* Quickjot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quickjot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0B731F17A2BA59007C75AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CD0B732117A2BA59007C75AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CD0B732317A2BA59007C75AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CD0B732517A2BA59007C75AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		CD0B732917A2BA59007C75AD /* CloudNote-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CloudNote-Info.plist"; sourceTree = "<group>"; };
+		CD0B732917A2BA59007C75AD /* Quickjot-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Quickjot-Info.plist"; sourceTree = "<group>"; };
 		CD0B732B17A2BA59007C75AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CD0B732D17A2BA59007C75AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CD0B732F17A2BA59007C75AD /* CloudNote-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CloudNote-Prefix.pch"; sourceTree = "<group>"; };
+		CD0B732D17A2BA59007C75AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; };
+		CD0B732F17A2BA59007C75AD /* Quickjot-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quickjot-Prefix.pch"; sourceTree = "<group>"; };
 		CD0B733017A2BA59007C75AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CD0B733117A2BA59007C75AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CD0B733A17A2BA59007C75AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		CD0B733D17A2BA59007C75AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		CD0B734017A2BA59007C75AD /* TeamNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeamNote.xcdatamodel; sourceTree = "<group>"; };
 		CD0B734D17A2BAA0007C75AD /* mainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainViewController.h; sourceTree = "<group>"; };
 		CD0B734E17A2BAA0007C75AD /* mainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainViewController.m; sourceTree = "<group>"; };
@@ -76,6 +77,10 @@
 		CD0B784817DDEB60004BE6DD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CD0B784A17DDEB6C004BE6DD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CD0B784C17DDEB7F004BE6DD /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		CD38E8C117EE22550046923C /* StartScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartScreenViewController.h; sourceTree = "<group>"; };
+		CD38E8C217EE22550046923C /* StartScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartScreenViewController.m; sourceTree = "<group>"; };
+		CD3E556D17EFB78E0071CFDE /* iPhoneSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneSettings.png; sourceTree = "<group>"; };
+		CD3E556E17EFB78E0071CFDE /* iPhoneSpotlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneSpotlight.png; sourceTree = "<group>"; };
 		CD66724A17E2133500787558 /* dropBoxNewNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dropBoxNewNoteViewController.h; sourceTree = "<group>"; };
 		CD66724B17E2133500787558 /* dropBoxNewNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dropBoxNewNoteViewController.m; sourceTree = "<group>"; };
 		CD66725017E2151900787558 /* DBListNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBListNoteViewController.h; sourceTree = "<group>"; };
@@ -137,7 +142,7 @@
 		CD0B731D17A2BA59007C75AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CD0B731C17A2BA59007C75AD /* CloudNote.app */,
+				CD0B731C17A2BA59007C75AD /* Quickjot.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,8 +170,7 @@
 			children = (
 				CD5ADDFE17C41C2900D889FB /* App Delegate */,
 				CD5ADDFF17C41C3700D889FB /* View Controllers */,
-				CD01162617BFE50600EDC90F /* Note.h */,
-				CD01162717BFE50600EDC90F /* Note.m */,
+				CDDB10B117E759CE003A11C9 /* Data Model(Core Data Object) */,
 				CD5ADDFD17C41C1A00D889FB /* StoryBoards */,
 				CD0B732817A2BA59007C75AD /* Supporting Files */,
 			);
@@ -176,21 +180,13 @@
 		CD0B732817A2BA59007C75AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CD66725817E2183600787558 /* Default-568h@2x.png */,
-				CD66725917E2183600787558 /* Default@2x.png */,
-				CDB2F8A917E64A24008CB757 /* iPadNonRetSplash.png */,
-				CDB2F8AA17E64A24008CB757 /* iPadSplash.png */,
 				CD5ADE0017C41C5000D889FB /* Data */,
-				CD89801817D8B6A600AE6F16 /* Raleway.ttf */,
-				CDB2F89F17E49661008CB757 /* whiteLines@2x.png */,
-				CDB2F8A017E49661008CB757 /* superCog@2x.png */,
-				CDB2F8A317E645C4008CB757 /* iPadRetIcon.png */,
-				CDB2F8A417E645C4008CB757 /* iPhoneRetIcon.png */,
-				CDB2F8A517E645C4008CB757 /* iPadNonRetIcon.png */,
-				CD0B732917A2BA59007C75AD /* CloudNote-Info.plist */,
+				CDDB10B217E759E5003A11C9 /* Images */,
+				CDDB10B617E75A26003A11C9 /* Fonts */,
+				CD0B732917A2BA59007C75AD /* Quickjot-Info.plist */,
 				CD0B732A17A2BA59007C75AD /* InfoPlist.strings */,
 				CD0B732D17A2BA59007C75AD /* main.m */,
-				CD0B732F17A2BA59007C75AD /* CloudNote-Prefix.pch */,
+				CD0B732F17A2BA59007C75AD /* Quickjot-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -199,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				CD0B733917A2BA59007C75AD /* MainStoryboard_iPhone.storyboard */,
-				CD0B733C17A2BA59007C75AD /* MainStoryboard_iPad.storyboard */,
 			);
 			name = StoryBoards;
 			sourceTree = "<group>";
@@ -218,14 +213,7 @@
 			children = (
 				CD66725317E2156900787558 /* iPhoneNoteLocation */,
 				CD66725417E2157800787558 /* DropBoxNoteLocation */,
-				CD0B736417A420B9007C75AD /* SettingsViewController.h */,
-				CD0B736517A420B9007C75AD /* SettingsViewController.m */,
-				CDD7787D17D5044E004F6912 /* fontSettingsViewController.h */,
-				CDD7787E17D5044E004F6912 /* fontSettingsViewController.m */,
-				CDD7788817D509C3004F6912 /* typeFaceViewController.h */,
-				CDD7788917D509C3004F6912 /* typeFaceViewController.m */,
-				CDD7788B17D509CF004F6912 /* FontsizeViewController.h */,
-				CDD7788C17D509CF004F6912 /* FontsizeViewController.m */,
+				CDDB10B017E759BC003A11C9 /* Other VCs */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -264,12 +252,88 @@
 			name = DropBoxNoteLocation;
 			sourceTree = "<group>";
 		};
+		CDDB10B017E759BC003A11C9 /* Other VCs */ = {
+			isa = PBXGroup;
+			children = (
+				CD38E8C117EE22550046923C /* StartScreenViewController.h */,
+				CD38E8C217EE22550046923C /* StartScreenViewController.m */,
+				CD0B736417A420B9007C75AD /* SettingsViewController.h */,
+				CD0B736517A420B9007C75AD /* SettingsViewController.m */,
+				CDD7787D17D5044E004F6912 /* fontSettingsViewController.h */,
+				CDD7787E17D5044E004F6912 /* fontSettingsViewController.m */,
+				CDD7788817D509C3004F6912 /* typeFaceViewController.h */,
+				CDD7788917D509C3004F6912 /* typeFaceViewController.m */,
+				CDD7788B17D509CF004F6912 /* FontsizeViewController.h */,
+				CDD7788C17D509CF004F6912 /* FontsizeViewController.m */,
+			);
+			name = "Other VCs";
+			sourceTree = "<group>";
+		};
+		CDDB10B117E759CE003A11C9 /* Data Model(Core Data Object) */ = {
+			isa = PBXGroup;
+			children = (
+				CD01162617BFE50600EDC90F /* Note.h */,
+				CD01162717BFE50600EDC90F /* Note.m */,
+			);
+			name = "Data Model(Core Data Object)";
+			sourceTree = "<group>";
+		};
+		CDDB10B217E759E5003A11C9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CDDB10B317E75A06003A11C9 /* Splash Image */,
+				CDDB10B417E75A12003A11C9 /* UI Assets */,
+				CDDB10B517E75A1E003A11C9 /* Icons */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		CDDB10B317E75A06003A11C9 /* Splash Image */ = {
+			isa = PBXGroup;
+			children = (
+				CD66725817E2183600787558 /* Default-568h@2x.png */,
+				CD66725917E2183600787558 /* Default@2x.png */,
+				CDB2F8A917E64A24008CB757 /* iPadNonRetSplash.png */,
+				CDB2F8AA17E64A24008CB757 /* iPadSplash.png */,
+			);
+			name = "Splash Image";
+			sourceTree = "<group>";
+		};
+		CDDB10B417E75A12003A11C9 /* UI Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CDB2F89F17E49661008CB757 /* whiteLines@2x.png */,
+				CDB2F8A017E49661008CB757 /* superCog@2x.png */,
+			);
+			name = "UI Assets";
+			sourceTree = "<group>";
+		};
+		CDDB10B517E75A1E003A11C9 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				CDB2F8A317E645C4008CB757 /* iPadRetIcon.png */,
+				CDB2F8A417E645C4008CB757 /* iPhoneRetIcon.png */,
+				CDB2F8A517E645C4008CB757 /* iPadNonRetIcon.png */,
+				CD3E556D17EFB78E0071CFDE /* iPhoneSettings.png */,
+				CD3E556E17EFB78E0071CFDE /* iPhoneSpotlight.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		CDDB10B617E75A26003A11C9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CD89801817D8B6A600AE6F16 /* Raleway.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CD0B731B17A2BA59007C75AD /* CloudNote */ = {
+		CD0B731B17A2BA59007C75AD /* Quickjot */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CD0B734A17A2BA59007C75AD /* Build configuration list for PBXNativeTarget "CloudNote" */;
+			buildConfigurationList = CD0B734A17A2BA59007C75AD /* Build configuration list for PBXNativeTarget "Quickjot" */;
 			buildPhases = (
 				CD0B731817A2BA59007C75AD /* Sources */,
 				CD0B731917A2BA59007C75AD /* Frameworks */,
@@ -279,9 +343,9 @@
 			);
 			dependencies = (
 			);
-			name = CloudNote;
+			name = Quickjot;
 			productName = TeamNote;
-			productReference = CD0B731C17A2BA59007C75AD /* CloudNote.app */;
+			productReference = CD0B731C17A2BA59007C75AD /* Quickjot.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -293,7 +357,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Joshua Areogun";
 			};
-			buildConfigurationList = CD0B731717A2BA59007C75AD /* Build configuration list for PBXProject "CloudNote" */;
+			buildConfigurationList = CD0B731717A2BA59007C75AD /* Build configuration list for PBXProject "Quickjot" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -305,7 +369,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CD0B731B17A2BA59007C75AD /* CloudNote */,
+				CD0B731B17A2BA59007C75AD /* Quickjot */,
 			);
 		};
 /* End PBXProject section */
@@ -316,12 +380,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDB2F8A817E645C4008CB757 /* iPadNonRetIcon.png in Resources */,
+				CD3E557017EFB78E0071CFDE /* iPhoneSpotlight.png in Resources */,
 				CD0B732C17A2BA59007C75AD /* InfoPlist.strings in Resources */,
+				CD3E556F17EFB78E0071CFDE /* iPhoneSettings.png in Resources */,
 				CDB2F8AB17E64A24008CB757 /* iPadNonRetSplash.png in Resources */,
 				CD0B733B17A2BA59007C75AD /* MainStoryboard_iPhone.storyboard in Resources */,
 				CDB2F8A117E49661008CB757 /* whiteLines@2x.png in Resources */,
 				CDB2F8A617E645C4008CB757 /* iPadRetIcon.png in Resources */,
-				CD0B733E17A2BA59007C75AD /* MainStoryboard_iPad.storyboard in Resources */,
 				CDB2F8AC17E64A24008CB757 /* iPadSplash.png in Resources */,
 				CD89801917D8B6A600AE6F16 /* Raleway.ttf in Resources */,
 				CD66725B17E2183700787558 /* Default@2x.png in Resources */,
@@ -342,6 +407,7 @@
 				CD0B733217A2BA59007C75AD /* AppDelegate.m in Sources */,
 				CD66725717E2161E00787558 /* DBViewController.m in Sources */,
 				CD66724C17E2133500787558 /* dropBoxNewNoteViewController.m in Sources */,
+				CD38E8C317EE22550046923C /* StartScreenViewController.m in Sources */,
 				CD0B734117A2BA59007C75AD /* TeamNote.xcdatamodeld in Sources */,
 				CD0B734F17A2BAA0007C75AD /* mainViewController.m in Sources */,
 				CD0B736617A420B9007C75AD /* SettingsViewController.m in Sources */,
@@ -374,14 +440,6 @@
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		CD0B733C17A2BA59007C75AD /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CD0B733D17A2BA59007C75AD /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -410,7 +468,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -435,7 +493,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -446,16 +504,17 @@
 		CD0B734B17A2BA59007C75AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/TeamNote\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TeamNote/CloudNote-Prefix.pch";
-				INFOPLIST_FILE = "TeamNote/CloudNote-Info.plist";
+				GCC_PREFIX_HEADER = "TeamNote/Quickjot-Prefix.pch";
+				INFOPLIST_FILE = "TeamNote/Quickjot-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = CloudNote;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_NAME = Quickjot;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -463,16 +522,17 @@
 		CD0B734C17A2BA59007C75AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/TeamNote\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TeamNote/CloudNote-Prefix.pch";
-				INFOPLIST_FILE = "TeamNote/CloudNote-Info.plist";
+				GCC_PREFIX_HEADER = "TeamNote/Quickjot-Prefix.pch";
+				INFOPLIST_FILE = "TeamNote/Quickjot-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = CloudNote;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_NAME = Quickjot;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -480,7 +540,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CD0B731717A2BA59007C75AD /* Build configuration list for PBXProject "CloudNote" */ = {
+		CD0B731717A2BA59007C75AD /* Build configuration list for PBXProject "Quickjot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CD0B734817A2BA59007C75AD /* Debug */,
@@ -489,7 +549,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CD0B734A17A2BA59007C75AD /* Build configuration list for PBXNativeTarget "CloudNote" */ = {
+		CD0B734A17A2BA59007C75AD /* Build configuration list for PBXNativeTarget "Quickjot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CD0B734B17A2BA59007C75AD /* Debug */,

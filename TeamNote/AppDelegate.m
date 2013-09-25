@@ -20,12 +20,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
+    // Navigation Bar Customizations.
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName, [UIFont fontWithName:@"Avenir Next" size:19.0], NSFontAttributeName, nil]];
     
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.3255 green:0.7725 blue:0.6941 alpha:1.0000]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     [[UIToolbar appearance] setBarTintColor:[UIColor colorWithRed:0.3255 green:0.7725 blue:0.6941 alpha:1.0000]];
+    
+    
+    //DropBox Support.
     
     DBAccountManager *accountMnger = [[DBAccountManager alloc] initWithAppKey:@"pfba7g6bhicpxmf" secret:@"ggc3t3ppurv5xqq"];
     [DBAccountManager setSharedManager:accountMnger];
@@ -37,7 +41,6 @@
         DBFilesystem *fileSystem = [[DBFilesystem alloc] initWithAccount:account];
         [DBFilesystem setSharedFilesystem:fileSystem];
     }
-    
     
     return YES;
 }
@@ -70,7 +73,7 @@
     [self saveContext];
 }
 
-//DropBox Integration methods begin here.
+//DropBox API Methods
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
@@ -84,6 +87,8 @@
     
     return NO;
 }
+
+//Core Data Methods.
 
 - (void)saveContext
 {

@@ -27,8 +27,9 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self)
+    {
+        
     }
     return self;
 }
@@ -120,6 +121,7 @@
 
 -(void)keyboardWasShown:(NSNotification *) notification
 {
+    
     NSDictionary *info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
@@ -128,17 +130,14 @@
     myTextView.scrollIndicatorInsets = contentInsets;
 }
 
-
-
 -(void)keyboardWillBeHidden:(NSNotification *)notification
 {
-    
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     myTextView.contentInset = contentInsets;
     myTextView.scrollIndicatorInsets = contentInsets;
-    
 }
 
+//TextView & TextField Delegation Methods.
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
@@ -203,11 +202,15 @@
     [self updateFileTitle];
 }
 
+//Custom Segue.
+
 -(void)moveToSettings
 {
     
     [self performSegueWithIdentifier:@"settingsSegue2" sender:self];
 }
+
+//ToolBar Button Methods.
 
 - (IBAction)shareButtonPressed:(id)sender
 {
@@ -225,9 +228,7 @@
     if (!myTextView.text.length == 0)
     {
         [self deleteFile];
-        [myTextView setText:@""];
-        self.navigationItem.title = @"";
-        isObjectSaved = NO;
+        [self popCurrentViewController];
     }
 }
 
@@ -236,10 +237,11 @@
    [self showTopicMessage];
 }
 
+//AlertView Handling.
 
 -(void)showTopicMessage
 {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter Title" message:@"Enter A Title For This Note" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter A Title For This Note" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
     
     message.alertViewStyle = UIAlertViewStylePlainTextInput;
     
@@ -285,6 +287,7 @@
     }
 }
 
+//Core Date CRUD Methods.
 
 -(void)saveFile
 {
@@ -317,7 +320,6 @@
     
 }
 
-
 -(void)updateFile
 {
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -332,7 +334,7 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:managedObjectContext];
     [request setEntity:entity];
     
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title == %@",noteTitle ];
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title == %@",noteTitle];
     
     [request setPredicate:pred];
     
@@ -352,7 +354,6 @@
         NSLog(@"Error Occured while saving the data");
     }
 }
-
 
 -(void)updateFileTitle
 {
@@ -384,6 +385,8 @@
     }
     
     noteTitle = currentNoteTitle;
+    
+    [self popCurrentViewController];
 }
 
 -(void)deleteFile
@@ -392,16 +395,11 @@
     NSManagedObjectContext *context = [delegate managedObjectContext];
     
     
-    NSString *myString = myTextView.text;
-    NSArray *arr = [myString componentsSeparatedByString:@"\n"];
-    
-    NSString *newTitleString = [arr objectAtIndex:0];
-    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:context];
     [request setEntity:entity];
     
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title == %@",newTitleString ];
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title == %@", currentNoteTitle];
     
     [request setPredicate:pred];
     
@@ -416,7 +414,5 @@
     {
         NSLog(@"Error Occured while saving the data");
     }
-    
-    
 }
 @end

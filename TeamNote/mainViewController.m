@@ -20,15 +20,16 @@
     NSString *currentNoteTitle;
     NSString *textFieldTitle;
     
-    BOOL isObjectSaved;
+    UITextView *activeField;
 
+    BOOL isObjectSaved;
 }
 
 @end
 
 @implementation mainViewController
 
-@synthesize mainTextView, navBar, NoteTitles, myTitle, titleTextField;
+@synthesize mainTextView, navBar, NoteTitles, myTitle, titleTextField, mainScrollView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,53 +43,46 @@
 
 - (void)viewDidLoad
 {
-
+    [super viewDidLoad];
 
     listTitleArray = [[NSMutableArray alloc] init];
-    
-    [super viewDidLoad];
+    currentNoteTitle = myTitle;
     
     self.navigationItem.title = myTitle;
     
-    currentNoteTitle = myTitle;
-    
     [self registerForKeyboardNotifications];
-    
     [self customizeAppearances];
     
     mainTextView.delegate = self;
     titleTextField.delegate = self;
-
 }
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [self customizeAppearances];
+    [self registerForKeyboardNotifications];
 }
 
 -(void)customizeAppearances
 {
     self.titleTextField.text = myTitle;
     
-    //[titleTextField setBackgroundColor:[UIColor colorWithRed:0.3255 green:0.7725 blue:0.6941 alpha:1.0000]];
-    
-    mainTextView.backgroundColor = [UIColor whiteColor];
-    
-    UIButton *myOldButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 23)];
-    
-    [myOldButton setImage:[UIImage imageNamed:@"whiteLines.png"] forState:UIControlStateNormal];
-    [myOldButton addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:myOldButton];
-    
-    self.navigationItem.leftBarButtonItem = back;
     self.navigationController.toolbarHidden = NO;
     self.navigationController.hidesBottomBarWhenPushed = YES;
     
+    mainTextView.backgroundColor = [UIColor whiteColor];
+    
+    //Custom BarButton Configuration.
+    UIButton *myOldButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 23)];
+    [myOldButton setImage:[UIImage imageNamed:@"whiteLines.png"] forState:UIControlStateNormal];
+    [myOldButton addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:myOldButton];
+    self.navigationItem.leftBarButtonItem = back;
+    
+    //Custom Font Handling.
     NSString *typeFace = [[NSUserDefaults standardUserDefaults] objectForKey:@"fontName"];
-    
     NSInteger usedFontSize = [self setFontSize];
-    
     self.mainTextView.font = [UIFont fontWithName:typeFace size:usedFontSize];
     
 }
@@ -100,29 +94,21 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
 }
  
--(void)keyboardWasShown:(NSNotification *) notification
-{
-    NSDictionary *info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, (kbSize.width > kbSize.height ? kbSize.height : kbSize.width), 0);
-    self.mainTextView.contentInset = contentInsets;
-    self.mainTextView.scrollIndicatorInsets = contentInsets;
-}
 
+-(void)keyboardWasShown:(NSNotification *)notification
+{
+    
+}
 
 
 -(void)keyboardWillBeHidden:(NSNotification *)notification
 {
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    self.mainTextView.contentInset = contentInsets;
-    self.mainTextView.scrollIndicatorInsets = contentInsets;
-
 }
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
+    activeField = self.mainTextView;
     
     doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneEditing)];
     
@@ -135,6 +121,13 @@
     self.navBar.rightBarButtonItem = [myArray objectAtIndex:0];
     
 }
+
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    activeField = nil;
+}
+
+
 
 - (void)doneEditing
 {
@@ -195,6 +188,8 @@
     [self updateFileTitle];
 }
 
+//ToolBar Buttons Handling.
+
 - (IBAction)shareButtonPressed:(id)sender
 {
     NSString *sharedText = self.mainTextView.text;
@@ -217,14 +212,15 @@
     if (!mainTextView.text.length == 0)
     {
         [self deleteFile];
-        isObjectSaved = NO;
-        [mainTextView setText:@""];
+        [self popCurrentViewController];
     }
 }
 
+//AlertView Methods.
+
 -(void)showTopicMessage
 {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter Title" message:@"Enter A Title For This Note" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter A Title For This Note" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
     
     message.alertViewStyle = UIAlertViewStylePlainTextInput;
     
@@ -270,12 +266,15 @@
     }
 }
 
+//Custom Segue.
 
 -(void)moveToSettings
 {
     
     [self performSegueWithIdentifier:@"settingsSegue" sender:self];
 }
+
+//Core Data CRUD methods.
 
 -(void)saveFile
 {
@@ -352,7 +351,7 @@
     
     [request setEntity:entity];
     
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title == %@", currentNoteTitle];
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title == %@", self.myTitle];
     
     [request setPredicate:pred];
     NSError *error;
@@ -383,7 +382,7 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:context];
     [request setEntity:entity];
     
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title == %@",self.title];
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"title == %@", currentNoteTitle];
     
     [request setPredicate:pred];
     
@@ -399,6 +398,8 @@
         NSLog(@"Error Occured while saving the data");
     }
 }
+
+//Font Handling & Custom Segues. 
 
 -(CGFloat)setFontSize
 {

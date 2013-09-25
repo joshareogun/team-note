@@ -12,5 +12,6 @@
 @interface SettingsViewController : UITableViewController
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
+@property (weak, nonatomic) IBOutlet UISwitch *dropBoxSwitch;
 
 @end

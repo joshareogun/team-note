@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
+@interface ListViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UISearchBarDelegate>
 
 
 @property(nonatomic, strong) NSArray *NoteTitles;
@@ -17,5 +17,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

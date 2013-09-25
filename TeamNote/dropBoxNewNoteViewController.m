@@ -12,13 +12,14 @@
 {
     UIBarButtonItem *doneButton;
     NSString *titleString;
-    
+    BOOL isObjectSaved;
+
 }
 @end
 
 @implementation dropBoxNewNoteViewController
 
-@synthesize mainTextView;
+@synthesize mainTextView, titleTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +37,7 @@
     [self customizeAppearances];
     
     mainTextView.delegate = self;
+    titleTextField.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -47,11 +49,11 @@
 {
     mainTextView.backgroundColor = [UIColor whiteColor];
     
-    //self.navigationItem.title = titleString;
+    self.titleTextField.text = self.myNoteTitle;
     
     UIButton *myOldButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 23)];
     
-    [myOldButton setImage:[UIImage imageNamed:@"newLines-01.png"] forState:UIControlStateNormal];
+    [myOldButton setImage:[UIImage imageNamed:@"whiteLines.png"] forState:UIControlStateNormal];
     [myOldButton addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:myOldButton];
@@ -106,8 +108,31 @@
     [myArray insertObject:doneButton atIndex:0];
     
     self.navBar.rightBarButtonItem = [myArray objectAtIndex:0];
-    
 }
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [titleTextField setHidden:NO];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.titleTextField)
+    {
+        [textField resignFirstResponder];
+    }
+    
+    return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.myNoteTitle = titleTextField.text;
+    titleString = titleTextField.text;
+    
+    [self updateDropboxFileTitle];
+}
+
 - (void)doneEditing
 {
     [[self view] endEditing:YES];
@@ -116,7 +141,7 @@
     
     UIButton *myOldButton = [[UIButton alloc] initWithFrame:CGRectMake(271, 3, 28, 25)];
     
-    [myOldButton setImage:[UIImage imageNamed:@"mintCog.png"] forState:UIControlStateNormal];
+    [myOldButton setImage:[UIImage imageNamed:@"superCog.png"] forState:UIControlStateNormal];
     [myOldButton addTarget:self action:@selector(moveToSettings) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *superButton = [[UIBarButtonItem alloc] initWithCustomView:myOldButton];
@@ -128,7 +153,16 @@
     
     if ([self.mainTextView.text length] != 0)
     {
-        [self runEpicDropBoxTimes];
+        if (isObjectSaved == NO)
+        {
+            [self runEpicDropBoxTimes];
+
+        }
+        
+        else
+        {
+            [self updateDropboxFile];
+        }
     }
 }
 
@@ -139,19 +173,55 @@
 }
 
 
+-(void)updateDropboxFile
+{
+    NSString *finalPath = [NSString stringWithFormat:@" %@.txt", self.myNoteTitle];
+    
+    DBPath *myPath = [[DBPath root] childPath:finalPath];
+    
+    DBFile *file = [[DBFilesystem sharedFilesystem] openFile:myPath error:nil];
+    
+    NSString *fileText = self.mainTextView.text;
+    
+    [file writeString:fileText error:nil];
+}
+
+-(void)updateDropboxFileTitle
+{
+    NSString *epicString = mainTextView.text;
+    
+    NSString *finalPath = [NSString stringWithFormat:@" %@.txt", self.myNoteTitle];
+    
+    DBPath *myPath = [[DBPath root] childPath:finalPath];
+    
+    [[DBFilesystem sharedFilesystem] deletePath:myPath error:nil];
+    
+     NSString *newPath = [NSString stringWithFormat:@" %@.txt", titleString];
+    
+    DBPath *pathReplacement = [[DBPath root] childPath:newPath];
+    
+    DBFile *fileReplacement = [[DBFilesystem sharedFilesystem] createFile:pathReplacement error:nil];
+    
+    [fileReplacement writeString:epicString error:nil];
+    
+    isObjectSaved = YES;
+}
+
 -(void)runEpicDropBoxTimes
 {
     NSString *epicString = mainTextView.text;
     
-    NSArray *temp = [epicString componentsSeparatedByString:@"\n"];
+    NSString *pathNameString = self.myNoteTitle;
     
-    NSString *pathNameString = [temp objectAtIndex:0];
+    NSString *finalPath = [NSString stringWithFormat:@" %@.txt", pathNameString];
     
-    DBPath *newPath = [[DBPath root] childPath:pathNameString];
+    DBPath *newPath = [[DBPath root] childPath:finalPath];
 
     DBFile *file = [[DBFilesystem sharedFilesystem] createFile:newPath error:nil];
     
     [file writeString:epicString error:nil];
+    
+    isObjectSaved = YES;
 }
 
 - (IBAction)shareButtonPressed:(id)sender
@@ -170,7 +240,7 @@
 {
     
     
-    [mainTextView setText:@""];
+    [self showMessageInput];
     
 }
 
@@ -179,8 +249,57 @@
     if (!mainTextView.text.length == 0)
     {
         [self deleteFile];
-        
+        [self popCurrentViewController];
+    }
+}
+
+-(void)showMessageInput
+{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter A Title For This Note" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
+    
+    message.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    [message show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *button = [alertView buttonTitleAtIndex:1];
+    
+    if ([button isEqualToString:@"Done"])
+    {
+        UITextField *title = [alertView textFieldAtIndex:0];
+        self.myNoteTitle = title.text;
+        self.titleTextField.text = title.text;
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSString *button = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    if ([button isEqualToString:@"Done"])
+    {
+        //[self viewDidLoad];
+        UITextField *title = [alertView textFieldAtIndex:0];
+        self.myNoteTitle = title.text;
+        self.titleTextField.text = title.text;
         [mainTextView setText:@""];
+        isObjectSaved = NO;
+    }
+}
+
+-(BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
+{
+    NSString *input = [[alertView textFieldAtIndex:0] text];
+    if([input length] >= 1)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+        
     }
 }
 
@@ -220,7 +339,8 @@
 
 -(void)deleteFile
 {
-    
+    DBFilesystem *fileSys = [DBFilesystem sharedFilesystem];
+    [fileSys deletePath:[[DBPath root] childPath:self.myNoteTitle] error:nil];
 }
 
 

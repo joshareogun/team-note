@@ -17,8 +17,9 @@
     NSMutableArray *allTopics;
     NSMutableArray *allContent;
     NSMutableArray *allDates;
-    NSMutableArray *filteredString;
+    NSMutableArray *filteredStrings;
     NSMutableArray *stringDates;
+    
     BOOL isFiltered;
     
     NSString *myTitle;
@@ -28,7 +29,7 @@
 
 @implementation ListViewController
 
-@synthesize  NoteContents, NoteTitles, myTableView, managedObjectContext;
+@synthesize  NoteContents, NoteTitles, myTableView, managedObjectContext, searchBar;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -47,6 +48,7 @@
     
     self.myTableView.delegate = self;
     self.myTableView.dataSource = self;
+    self.searchBar.delegate = self;
     
 }
 
@@ -58,6 +60,7 @@
     self.navigationController.toolbarHidden = NO;
 }
 
+
 - (IBAction)composeNotePressed:(id)sender
 {
     [self showTopicMessage];
@@ -65,15 +68,16 @@
 
 -(void)customizations
 {
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    //Navigation Bar & Buttons Customizations.
+    
+    self.navigationItem.title = @"All Notes";
+    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem.title = @"Edit";
     
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Avenir Next" size:15.0],NSFontAttributeName,
-                                                                  nil] forState:UIControlStateNormal];
-    
-    self.navigationItem.title = @"All Notes";
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Avenir Next" size:15.0],NSFontAttributeName,nil] forState:UIControlStateNormal];
     
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithTitle:@"Storage" style:UIBarButtonItemStyleBordered target:self action:@selector(popCurrentViewController)];
     
@@ -85,8 +89,18 @@
                                                                    nil] forState:UIControlStateNormal];
     
     self.navigationController.toolbarHidden = NO;
+    
+   //Hide Searchbar on initial launch.
+    
+    CGRect bounds = self.tableView.bounds;
+    bounds.origin.y = bounds.origin.y + self.searchBar.bounds.size.height;
+    self.tableView.bounds = bounds;
+    
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.toolbarHidden = NO;
 
 }
+//Custom Segue.
 
 -(void)popCurrentViewController
 {
@@ -120,13 +134,60 @@
         [allContent addObject:note.content];
         [allDates addObject:note.dateCreated];
     }
-    
-    
 }
 
+//SearchBar Methods.
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length == 0)
+    {
+        isFiltered = NO;
+    }
+    else
+    {
+        isFiltered = YES;
+        
+        filteredStrings = [[NSMutableArray alloc] init];
+        
+        for(NSString *str in allTopics)
+        {
+            NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            
+            if (stringRange.location != NSNotFound)
+            {
+                [filteredStrings addObject:str];
+            }
+        }
+    }
+    
+    [self.myTableView reloadData];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchBar resignFirstResponder];
+}
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [self.searchBar resignFirstResponder];
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchBar resignFirstResponder];
+}
+
+//tableView Data Handling.
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    
+    if (isFiltered)
+    {
+        return [filteredStrings count];
+    }
     
     return [allTopics count];
 }
@@ -138,26 +199,34 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Note *note = [NoteTitles objectAtIndex:indexPath.row];
+    if (!isFiltered)
+    {
     
-    //cell.backgroundColor = [UIColor colorWithRed:0.4000 green:0.4000 blue:0.4000 alpha:1.0000];
+        Note *note = [NoteTitles objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = note.title;
-    cell.textLabel.font = [UIFont fontWithName:@"Avenir Next" size:17.0];
+        cell.textLabel.text = note.title;
+        cell.textLabel.font = [UIFont fontWithName:@"Avenir Next" size:17.0];
     
-    //detailTextlabel goes here!!!
-   cell.detailTextLabel.font = [UIFont fontWithName:@"Avenir Next" size:12.0];
+        //detailTextlabel goes here!!!
+        cell.detailTextLabel.font = [UIFont fontWithName:@"Avenir Next" size:12.0];
     
-    NSString *myDate;
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterMediumStyle];
-    myDate =  [formatter stringFromDate:note.dateCreated];
+        NSString *myDate;
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+        myDate =  [formatter stringFromDate:note.dateCreated];
     
-    cell.detailTextLabel.text = myDate;
-
+        cell.detailTextLabel.text = myDate;
+    }
+    else
+    {
+        cell.textLabel.text = [filteredStrings objectAtIndex:indexPath.row];
+        cell.textLabel.font = [UIFont fontWithName:@"Avenir Next" size:17.0];
+    }
     
     return cell;
 }
+
+//Table View Data Editing.
 
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
@@ -193,9 +262,11 @@
     }
 }
 
+//New Note AlertView Popup.
+
 -(void)showTopicMessage
 {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter Title" message:@"enter a title for this note" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter A Title For This Note" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
     
     message.alertViewStyle = UIAlertViewStylePlainTextInput;
     
@@ -239,6 +310,8 @@
     }
 }
 
+//Segue Handling. 
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"archiveDetail"])
@@ -260,5 +333,4 @@
     }
     
 }
-
 @end

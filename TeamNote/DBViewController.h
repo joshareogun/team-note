@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Dropbox/Dropbox.h>
 
-@interface DBViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface DBViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *mySearchBar;
 
 @end
