@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 
 @property(nonatomic, strong) NSArray *NoteTitles;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 @end

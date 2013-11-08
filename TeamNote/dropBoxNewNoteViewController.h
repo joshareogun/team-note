@@ -18,5 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 @end

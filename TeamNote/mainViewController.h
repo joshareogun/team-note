@@ -11,7 +11,6 @@
 @interface mainViewController : UIViewController <UITextViewDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *mainTextView;
-@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
@@ -19,5 +18,6 @@
 @property(nonatomic, strong) NSArray *NoteTitles;
 
 @property(nonatomic, strong) NSString *myTitle;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 @end

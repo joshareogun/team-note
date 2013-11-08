@@ -19,5 +19,6 @@
 @property (weak, nonatomic) DBFile *myFile;
 @property (weak, nonatomic) NSString *fileTitle;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 @end

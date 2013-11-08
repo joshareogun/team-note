@@ -13,6 +13,11 @@
     UIBarButtonItem *doneButton;
     NSString *titleString;
     BOOL isObjectSaved;
+    
+    __weak dropBoxNewNoteViewController *_self;
+    
+    NSLayoutConstraint *constraint;
+    CGFloat originalConstraint;
 
 }
 @end
@@ -38,6 +43,10 @@
     
     mainTextView.delegate = self;
     titleTextField.delegate = self;
+    
+    constraint = self.bottomConstraint;
+    originalConstraint = self.bottomConstraint.constant;
+    _self = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -80,20 +89,31 @@
 -(void)keyboardWasShown:(NSNotification *) notification
 {
     NSDictionary *info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, (kbSize.width > kbSize.height ? kbSize.height : kbSize.width), 0);
-    self.mainTextView.contentInset = contentInsets;
-    self.mainTextView.scrollIndicatorInsets = contentInsets;
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    
+    CGRect frame = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    frame = [window convertRect:frame fromWindow:nil];
+    frame = [_self.view convertRect:frame fromView:window];
+    
+    CGFloat height = CGRectGetHeight(frame);
+    
+    constraint.constant = originalConstraint + height;
+    
+    NSTimeInterval duration = [info[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{[_self.view layoutIfNeeded];}];
 }
 
 -(void)keyboardWillBeHidden:(NSNotification *)notification
 {
+    NSDictionary *info = [notification userInfo];
+    constraint.constant = originalConstraint;
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    self.mainTextView.contentInset = contentInsets;
-    self.mainTextView.scrollIndicatorInsets = contentInsets;
+    NSTimeInterval duration = [info[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
+    [UIView animateWithDuration:duration animations:^{[_self.view layoutIfNeeded];}];
 }
 
 -(void)textViewDidBeginEditing:(UITextView *)textView

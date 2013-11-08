@@ -20,7 +20,10 @@
     NSString *currentNoteTitle;
     NSString *textFieldTitle;
     
-    UITextView *activeField;
+    __weak mainViewController *_self;
+    
+    NSLayoutConstraint *constraint;
+    CGFloat originalConstraint;
 
     BOOL isObjectSaved;
 }
@@ -29,7 +32,7 @@
 
 @implementation mainViewController
 
-@synthesize mainTextView, navBar, NoteTitles, myTitle, titleTextField, mainScrollView;
+@synthesize mainTextView, navBar, NoteTitles, myTitle, titleTextField;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -55,6 +58,10 @@
     
     mainTextView.delegate = self;
     titleTextField.delegate = self;
+    
+    constraint = self.bottomConstraint;
+    originalConstraint = self.bottomConstraint.constant;
+    _self = self;
 }
 
 
@@ -97,18 +104,37 @@
 
 -(void)keyboardWasShown:(NSNotification *)notification
 {
+    NSDictionary *info = [notification userInfo];
     
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    
+    CGRect frame = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    frame = [window convertRect:frame fromWindow:nil];
+    frame = [_self.view convertRect:frame fromView:window];
+    
+    CGFloat height = CGRectGetHeight(frame);
+    
+    constraint.constant = originalConstraint + height;
+    
+    NSTimeInterval duration = [info[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{[_self.view layoutIfNeeded];}];
 }
 
 
 -(void)keyboardWillBeHidden:(NSNotification *)notification
 {
+    NSDictionary *info = [notification userInfo];
+    constraint.constant = originalConstraint;
     
+    NSTimeInterval duration = [info[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{[_self.view layoutIfNeeded];}];
 }
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
-    activeField = self.mainTextView;
     
     doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneEditing)];
     
@@ -121,12 +147,6 @@
     self.navBar.rightBarButtonItem = [myArray objectAtIndex:0];
     
 }
-
--(void)textViewDidEndEditing:(UITextView *)textView
-{
-    activeField = nil;
-}
-
 
 
 - (void)doneEditing

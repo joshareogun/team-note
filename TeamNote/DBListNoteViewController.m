@@ -13,6 +13,12 @@
     UIBarButtonItem *doneButton;
      NSString *newNoteTitle;
     NSString *titleString;
+    
+    __weak DBListNoteViewController *_self;
+    
+    NSLayoutConstraint *constraint;
+    CGFloat originalConstraint;
+
 }
 
 @end
@@ -41,6 +47,9 @@
     myTextView.delegate = self;
     titletextField.delegate = self;
     
+    constraint = self.bottomConstraint;
+    originalConstraint = self.bottomConstraint.constant;
+    _self = self;
 }
 
 -(void)initialDataFetch
@@ -86,12 +95,32 @@
 
 -(void)keyboardWasShown:(NSNotification *) notification
 {
+    NSDictionary *info = [notification userInfo];
     
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    
+    CGRect frame = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    frame = [window convertRect:frame fromWindow:nil];
+    frame = [_self.view convertRect:frame fromView:window];
+    
+    CGFloat height = CGRectGetHeight(frame);
+    
+    constraint.constant = originalConstraint + height;
+    
+    NSTimeInterval duration = [info[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{[_self.view layoutIfNeeded];}];
 }
 
 -(void)keyboardWillBeHidden:(NSNotification *)notification
 {
+    NSDictionary *info = [notification userInfo];
+    constraint.constant = originalConstraint;
     
+    NSTimeInterval duration = [info[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{[_self.view layoutIfNeeded];}];
 }
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {

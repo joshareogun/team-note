@@ -34,6 +34,7 @@
 		CD66725717E2161E00787558 /* DBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD66725617E2161E00787558 /* DBViewController.m */; };
 		CD66725A17E2183700787558 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD66725817E2183600787558 /* Default-568h@2x.png */; };
 		CD66725B17E2183700787558 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD66725917E2183600787558 /* Default@2x.png */; };
+		CD6C56DD182D2B32006D8DC3 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD6C56DC182D2B32006D8DC3 /* MainStoryboard_iPad.storyboard */; };
 		CD89801917D8B6A600AE6F16 /* Raleway.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD89801817D8B6A600AE6F16 /* Raleway.ttf */; };
 		CDB2F8A117E49661008CB757 /* whiteLines@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB2F89F17E49661008CB757 /* whiteLines@2x.png */; };
 		CDB2F8A217E49661008CB757 /* superCog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB2F8A017E49661008CB757 /* superCog@2x.png */; };
@@ -52,15 +53,15 @@
 /* Begin PBXFileReference section */
 		CD01162617BFE50600EDC90F /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		CD01162717BFE50600EDC90F /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
-		CD0B731C17A2BA59007C75AD /* Quickjot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quickjot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD0B731C17A2BA59007C75AD /* Qjot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qjot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0B731F17A2BA59007C75AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CD0B732117A2BA59007C75AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CD0B732317A2BA59007C75AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CD0B732517A2BA59007C75AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		CD0B732917A2BA59007C75AD /* Quickjot-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Quickjot-Info.plist"; sourceTree = "<group>"; };
+		CD0B732917A2BA59007C75AD /* Qjot-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Qjot-Info.plist"; sourceTree = "<group>"; };
 		CD0B732B17A2BA59007C75AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CD0B732D17A2BA59007C75AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; };
-		CD0B732F17A2BA59007C75AD /* Quickjot-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quickjot-Prefix.pch"; sourceTree = "<group>"; };
+		CD0B732F17A2BA59007C75AD /* Quickjot+-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quickjot+-Prefix.pch"; sourceTree = "<group>"; };
 		CD0B733017A2BA59007C75AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CD0B733117A2BA59007C75AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CD0B733A17A2BA59007C75AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		CD66725617E2161E00787558 /* DBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBViewController.m; sourceTree = "<group>"; };
 		CD66725817E2183600787558 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CD66725917E2183600787558 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CD6C56DC182D2B32006D8DC3 /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		CD89801817D8B6A600AE6F16 /* Raleway.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Raleway.ttf; sourceTree = "<group>"; };
 		CDB2F89F17E49661008CB757 /* whiteLines@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteLines@2x.png"; sourceTree = "<group>"; };
 		CDB2F8A017E49661008CB757 /* superCog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "superCog@2x.png"; sourceTree = "<group>"; };
@@ -142,7 +144,7 @@
 		CD0B731D17A2BA59007C75AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CD0B731C17A2BA59007C75AD /* Quickjot.app */,
+				CD0B731C17A2BA59007C75AD /* Qjot.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,10 +185,10 @@
 				CD5ADE0017C41C5000D889FB /* Data */,
 				CDDB10B217E759E5003A11C9 /* Images */,
 				CDDB10B617E75A26003A11C9 /* Fonts */,
-				CD0B732917A2BA59007C75AD /* Quickjot-Info.plist */,
+				CD0B732917A2BA59007C75AD /* Qjot-Info.plist */,
 				CD0B732A17A2BA59007C75AD /* InfoPlist.strings */,
 				CD0B732D17A2BA59007C75AD /* main.m */,
-				CD0B732F17A2BA59007C75AD /* Quickjot-Prefix.pch */,
+				CD0B732F17A2BA59007C75AD /* Quickjot+-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				CD0B733917A2BA59007C75AD /* MainStoryboard_iPhone.storyboard */,
+				CD6C56DC182D2B32006D8DC3 /* MainStoryboard_iPad.storyboard */,
 			);
 			name = StoryBoards;
 			sourceTree = "<group>";
@@ -331,9 +334,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CD0B731B17A2BA59007C75AD /* Quickjot */ = {
+		CD0B731B17A2BA59007C75AD /* Qjot */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CD0B734A17A2BA59007C75AD /* Build configuration list for PBXNativeTarget "Quickjot" */;
+			buildConfigurationList = CD0B734A17A2BA59007C75AD /* Build configuration list for PBXNativeTarget "Qjot" */;
 			buildPhases = (
 				CD0B731817A2BA59007C75AD /* Sources */,
 				CD0B731917A2BA59007C75AD /* Frameworks */,
@@ -343,9 +346,9 @@
 			);
 			dependencies = (
 			);
-			name = Quickjot;
+			name = Qjot;
 			productName = TeamNote;
-			productReference = CD0B731C17A2BA59007C75AD /* Quickjot.app */;
+			productReference = CD0B731C17A2BA59007C75AD /* Qjot.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -356,8 +359,13 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Joshua Areogun";
+				TargetAttributes = {
+					CD0B731B17A2BA59007C75AD = {
+						DevelopmentTeam = 932L27B72A;
+					};
+				};
 			};
-			buildConfigurationList = CD0B731717A2BA59007C75AD /* Build configuration list for PBXProject "Quickjot" */;
+			buildConfigurationList = CD0B731717A2BA59007C75AD /* Build configuration list for PBXProject "Qjot" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -369,7 +377,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CD0B731B17A2BA59007C75AD /* Quickjot */,
+				CD0B731B17A2BA59007C75AD /* Qjot */,
 			);
 		};
 /* End PBXProject section */
@@ -385,6 +393,7 @@
 				CD3E556F17EFB78E0071CFDE /* iPhoneSettings.png in Resources */,
 				CDB2F8AB17E64A24008CB757 /* iPadNonRetSplash.png in Resources */,
 				CD0B733B17A2BA59007C75AD /* MainStoryboard_iPhone.storyboard in Resources */,
+				CD6C56DD182D2B32006D8DC3 /* MainStoryboard_iPad.storyboard in Resources */,
 				CDB2F8A117E49661008CB757 /* whiteLines@2x.png in Resources */,
 				CDB2F8A617E645C4008CB757 /* iPadRetIcon.png in Resources */,
 				CDB2F8AC17E64A24008CB757 /* iPadSplash.png in Resources */,
@@ -455,7 +464,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joshua Areogun (932L27B72A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joshua Areogun (932L27B72A)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -487,7 +497,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joshua Areogun (932L27B72A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joshua Areogun (932L27B72A)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -504,17 +515,19 @@
 		CD0B734B17A2BA59007C75AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joshua Areogun (932L27B72A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joshua Areogun (932L27B72A)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/TeamNote\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TeamNote/Quickjot-Prefix.pch";
-				INFOPLIST_FILE = "TeamNote/Quickjot-Info.plist";
+				GCC_PREFIX_HEADER = "TeamNote/Qjot-Prefix.pch";
+				INFOPLIST_FILE = "TeamNote/Qjot-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = Quickjot;
-				TARGETED_DEVICE_FAMILY = 1;
+				PRODUCT_NAME = Qjot;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -522,17 +535,19 @@
 		CD0B734C17A2BA59007C75AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joshua Areogun (932L27B72A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joshua Areogun (932L27B72A)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/TeamNote\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TeamNote/Quickjot-Prefix.pch";
-				INFOPLIST_FILE = "TeamNote/Quickjot-Info.plist";
+				GCC_PREFIX_HEADER = "TeamNote/Qjot-Prefix.pch";
+				INFOPLIST_FILE = "TeamNote/Qjot-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = Quickjot;
-				TARGETED_DEVICE_FAMILY = 1;
+				PRODUCT_NAME = Qjot;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -540,7 +555,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CD0B731717A2BA59007C75AD /* Build configuration list for PBXProject "Quickjot" */ = {
+		CD0B731717A2BA59007C75AD /* Build configuration list for PBXProject "Qjot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CD0B734817A2BA59007C75AD /* Debug */,
@@ -549,7 +564,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CD0B734A17A2BA59007C75AD /* Build configuration list for PBXNativeTarget "Quickjot" */ = {
+		CD0B734A17A2BA59007C75AD /* Build configuration list for PBXNativeTarget "Qjot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CD0B734B17A2BA59007C75AD /* Debug */,
